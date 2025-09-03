@@ -1,4 +1,4 @@
-# Your startup name here
+# Untitled Startup - Owen Werts
 
 [My Notes](notes.md)
 
