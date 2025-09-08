@@ -98,3 +98,6 @@ Handling the toggling of the checkboxes was particularly interesting.
   ))}
 </div>
 ```
+## Career Advice
+- Always have a git .md with links to your various projects on your resume
+- Git is the biggest indicator of a professional programmer
