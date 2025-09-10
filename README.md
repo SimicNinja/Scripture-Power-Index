@@ -13,12 +13,8 @@ A brief description of the application here. Options: New & Improved Scripture M
 
 ## 🚀 Specification Deliverable
 
-> [!NOTE]
->  Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
-- [ ] Proper use of Markdown
+<ins>To Do:</ins>
+- [x] Proper use of Markdown
 - [x] A concise and compelling elevator pitch
 - [x] Description of key features
 - [x] Description of how you will use each technology
@@ -32,16 +28,22 @@ Have you ever tried to make flashcards on your phone? Did you try typing your fa
 >  From here on out, the term "deck" is used to refer to a group of flashcards, or a deck, that is defined by a user. Decks can be studied, edited, & shared.
 
 ### Design
+A rough sketch of the client UI.
 
-![Design image](placeholder.png)
+![Scripture Memorization Index Basic Design](https://github.com/user-attachments/assets/ac1c7490-107c-43ed-a21b-0032fc241813)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+A sequence diagram of the interactions between the user, through the client/webpage, and the database, through the service class endpoints.
 
 ```mermaid
 sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
+    actor User/Client
+    actor Service/DB
+    User/Client->>Service/DB: Register a new user
+    User/Client->>Service/DB: Login as existing user
+    Service/DB->>User/Client: Returns a session token if properly registerd/logged in.
+    User/Client->>Service/DB: Create/Modify a deck
+    User/Client->>Service/DB: Study a deck
+    Service/DB->>User/Client: Return requested deck
 ```
 
 ### Key features
