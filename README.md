@@ -1,4 +1,4 @@
-# Untitled Startup - Owen Werts
+# Scripture Memorization Index - Owen Werts
 
 [My Notes](notes.md)
 
@@ -19,14 +19,17 @@ A brief description of the application here. Options: New & Improved Scripture M
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
+- [x] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Have you ever tried to make flashcards on your phone? Did you try typing your favorite passages of scripture in only to realize that it took you 30 minutes to finish 5 of them? Scripture Memorization Index is a flashcard application catered specifically to memorizing passages from the standard works of The Church of Jesus Christ of Latter-day Saints. The main goal is to minimize your time spent on creating flashcards by having all of the verses popluated by the application given a specific reference (i.e. 1 Nephi 3:7). Furthurmore, you can draw upon all the flashcard decks that other individuals have made!
+
+> [!NOTE]
+>  From here on out, the term "deck" is used to refer to a group of flashcards, or a deck, that is defined by a user. Decks can be studied, edited, & shared.
 
 ### Design
 
@@ -43,20 +46,42 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Secure login with HTTPS
+- Ability to create, copy, and edit decks of flashcards
+- Ability to share flashcard deck edit & view access
+- Notifications when a flashcard deck is shared or edited.
+- Ability to create flashcard by entering a scripture reference (i.e. Ether 12:27 populates: "And if men come unto me, ...")
+- Accuracy during a study session is tracked, stored, & reported
+- Location in a study deck is maintained between logins or if connection is temporarily lost
+- Difficult cards can be favorited for more frequent study
 
 ### Technologies
 
-I am going to use the required technologies in the following ways.
+I am going to use the required technologies in the following ways:
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - 4 HTML Pages
+    1. Login Page
+    2. Deck Management Page (including permissions)
+    3. Deck Editing Page
+    4. Studying a Deck Page
+- **CSS** - Application styling for various screen/window sizes as well as mobile app styling for the PWA (Progressive Web App). Potential second mode for dark mode support.
+- **React** - Basic front-end logic and management of login, deck editing, client-side logic (deck progress, accuracy percentage calculation, etc.)
+- **Service** - Standard service endpoints for:
+    - Register a user
+    - Login a user
+    - Logout
+    - Creating a new deck
+    - Deleting a deck
+    - Creating a flashcard
+    - Updating a flashcard
+    - Deleting a flashcard
+    - Updating deck view permissions
+    - Updating deck edit permissions
+- **DB/Login** - Securely store the following when directed by service endpoints:
+    - User Credentials
+    - User Session Token
+    - User Decks (and child flashcards)
+- **WebSocket** - Notify users when their decks have been edited or viewed. Notify users of permission changes to decks (being added to a deck, when an invitation to view/edit is accepted/rejected, etc.)
 
 ## 🚀 AWS deliverable
 
