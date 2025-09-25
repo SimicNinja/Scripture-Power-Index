@@ -11,11 +11,19 @@
 
 		<img src = "scriptures_eye_glasses.jpeg" alt = "Image of the scripture lying open with a pair of glasses lying on top of them." class = "Responsive Image">
 
-		<nav>
+		<nav id = "sidebar" class = "sidebar">
+			<!-- Button to hide/show menu to declutter mobile ui-->
+			<button class = "Hamburger Button" onclick = "toggleSidebar()">Hamburer Icon Placeholder</button>
+
 			<menu>
 				<li><a href = "index.html">Scripture Memorization Index</a></li>
 				<li><a href = "deck-management.html">Deck Library</a></li>
+				<button class = "Notification Button" onclick = "toggleNotifications()">Notifications</button>
 			</menu>
+
+			<!-- Dive for eventual implementation of notifications from database with Websocket.-->
+			<div id = "Notifications Menu" class = "Popup" style = "display: none;">
+			</div>
 		</nav>
 	</header>
 
