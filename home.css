@@ -1,0 +1,19 @@
+#navigationBar
+{
+    width: 100vw;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus
+{
+    background-color: green;
+    width: 11vw;
+    max-width: 80px;
+    height: 11vw;
+    max-height: 80px;
+}
+
+.bi
+{
+    color: white;
+    font-size: 3vw;
+}
