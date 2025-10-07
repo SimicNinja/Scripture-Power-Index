@@ -11,9 +11,15 @@
     text-decoration: underline;
 }
 
+#scriptureImgNavBar
+{
+    width: 50vw;
+}
+
 .btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus
 {
     background-color: green;
+    border-color: green;
     width: 11vw;
     max-width: 60px;
     height: 11vw;
