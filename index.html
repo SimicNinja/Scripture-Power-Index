@@ -54,19 +54,24 @@
 
 		<h2>Please Login to Continue</h2>
 
-		<form method = "get" action = "deck-management.html">
-			<div id = "Username">
-				<span>Username: </span>
-				<input type = "text" placeholder = "Username">
-			</div>
-			<div id = "password">
-				<span>Password: </span>
-				<input type = "text" placeholder = "Enter your password here">
-			</div>
-			<button type = "submit">Login</button>
-			<br>
-			<span>Don't have a login yet? Register <a href="registration.html">here</a></span>
-		</form>
+		<div class = "px-4 py-3">
+			<form method = "get" action = "deck-management.html">
+				<div>
+					<label for = "emailInput" class = "form-label">Email Address</label>
+					<input type = "email" class = "form-control" id = "emailInput" aria-describedby = "emailHelp">
+					<div id = "emailHelp" class = "form-text">Your email will never be shared. We simply use it for password reset.</div>
+				</div>
+				<div class = "mt-3">
+					<label for = "passwordInput" class = "form-label">Password</label>
+					<input type = "password" class = "form-control" id = "passwordInput" aria-describedby="passwordHelp">
+					<div id = "passwordHelp" class = "form-text">Your password must be at least 10 character long</div>
+				</div>
+				<div class = "mt-3">
+					<button type = "submit" class = "btn btn-primary">Login</button>
+				</div>
+				<span>Don't have a login yet? Register <a href="registration.html">here</a></span>
+			</form>
+		</div>
 	</main>
 
 	<footer>
