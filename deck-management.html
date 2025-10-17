@@ -45,14 +45,17 @@
 	</header>
 
 	<main>
-		<div class = "px-2 py-3">
+		<p class = "px-4 my-3">
+			This is a list of all the decks you have made and those that have been shared with you. Simply click or tap on the title of a deck to edit it!
+		</p>
+		<div class = "px-2 my-3 d-flex">
 			<table class = "table table-hover table-striped table-bordered table-sm">
 				<thead>
 					<tr>
 						<th scope = "col">Deck Title</th>
 						<th scope = "col"># of Terms</th>
 						<th scope = "col">Creator</th>
-						<th scope = "col">Date Created</th>
+						<th scope = "col" class = "d-none d-lg-table-cell">Date Created</th>
 					</tr>
 				</thead>
 				<tbody class = "table-group-divider">
@@ -60,27 +63,29 @@
 						<td><a class = "link" href = "deck-editor.html">Scripture Mastery</a></td>
 						<td>100</td>
 						<td>The Church of Jesus Christ of Latter-day Saints</td>
-						<td>2012-07-13</td>
+						<td class = "d-none d-lg-table-cell">2012-07-13</td>
 					</tr>
 					<tr>
 						<td><a class = "link" href = "deck-editor.html">The Restoration</a></td>
 						<td>18</td>
 						<td>You</td>
-						<td>2023-04-08</td>
+						<td class = "d-none d-lg-table-cell">2023-04-08</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 
-		<div class = "text-center"><button id = "Create Deck" class = "btn btn-primary ">Create a New Deck</button></div>
+		<!-- <div class = "text-center"><button id = "Create Deck" class = "btn btn-primary "><a href = "deck-editor.html" id = "pageLink">Create a New Deck</button></div> -->
         
 	</main>
 
 	<footer class = "text-center">
-		<hr>
-		Created by: Owen Werts
-		<br>
-		<a href = https://github.com/SimicNinja/Scripture-Power-Index>Source GitHub</a>
+		<div>
+			<hr>
+			Created by: Owen Werts
+			<br>
+			<a href = https://github.com/SimicNinja/Scripture-Power-Index>Source GitHub</a>
+		</div>
 	</footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
