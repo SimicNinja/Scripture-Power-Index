@@ -59,6 +59,11 @@
     font-size: clamp(10px, 4vw, 30px);
 }
 
+.rounded-2
+{
+    background-color: rgb(106, 169, 194);
+}
+
 h1
 {
     font-size: 2rem;
