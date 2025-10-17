@@ -38,6 +38,12 @@
     max-height: 60px;
 }
 
+.pageLink
+{
+    color: white;
+    text-decoration: none;
+}
+
 .bi
 {
     color: white;
@@ -51,5 +57,6 @@ h1
 
 p
 {
+    text-align: justify !important;
     font-size: 1em;
 }
