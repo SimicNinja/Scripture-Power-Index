@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name = "viewport" content = "width=device-width, initial-scale=1">
+	<link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel = "stylesheet">
+	<link href = "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+	<link href = "home.css" rel = "stylesheet">
+	<meta charset = "UTF-8">
+	<title>Deck Editor</title>
+</head>
+<body class>
+	<header class = "d-flex flex-wrap align-items-center justify-content-start bg-black">
+		<img class = "img-fluid d-none d-lg-block" id = "scriptureImgTop" src = "scriptures_eye_glasses.jpeg" alt = "Image of the scripture lying open with a pair of glasses lying on top of them.">
+
+		<nav class = "navbar navbar-expand-lg bg-black" id = "navigationBar">
+			<div class = "container-fluid">
+				<div class = "d-flex justify-content-end">
+					<div class = "flex-grow-1">
+						<!-- Button to hide/show menu to declutter mobile ui-->
+						<button class = "btn btn-primary navbar-toggler" data-bs-toggle = "collapse" data-bs-target = "#navigationMenu"
+						aria-controls = "navigationMenu" aria-expanded = "false" aria-label = "Toggle navigation">
+							<span class="bi bi-list"></span>
+						</button>
+
+						<button class = "btn btn-primary"><a href = "login.html"><span class = "bi bi-person-circle"></span></a></button>
+						<button class = "btn btn-primary" onclick = "toggleNotifications()"><span class="bi bi-bell"></span></button>
+					</div>
+				</div>
+
+				<img class = "img-fluid d-block d-lg-none" id = "scriptureImgNavBar" src = "scriptures_eye_glasses.jpeg" alt = "Image of the scripture lying open with a pair of glasses lying on top of them.">
+
+				<div class = "collapse navbar-collapse" id = "navigationMenu">
+					<ul class = "navbar-nav flex-column flex-lg-row">
+						<li class = "nav-item"><a href = "index.html" class = "nav-link">About Scripture Power</a></li>
+						<li class = "nav-item"><a href = "deck-management.html" class = "nav-link">Deck Library</a></li>
+					</ul>
+				</div>
+
+				<!-- Div for eventual implementation of notifications from database with Websocket.-->
+				<div id = "Notifications Menu" class = "Popup" style = "display: none;">
+				</div>
+			</div>
+		</nav>
+
+		<nav class = "ps-2 bg-black" aria-label = "breadcrumb" id = "ScriptureBreadcrumb">
+			<div class = "ps-1">
+				<ul class = "breadcrumb">
+					<li class = "breadcrumb-item">Scriptures</li>
+					<li class = "breadcrumb-item">Book of Mormon</li>
+					<li class = "breadcrumb-item">2 Nephi</li>
+					<li class = "breadcrumb-item">32</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<h1 class = "text-center pt-2">Flashcard Editor</h1>
+
+        <!-- Shell of how access to scripture API will operate with javascript support.-->
+		<div class = "Verse Selection Pane">
+            <p class = "px-3">Select the verse you would like on your flashcard. Use the links above to navigate.</p>
+
+            <div>
+                <ul class = "Verse Block px-3 m-0">
+                    <li id="2 ne_32.1" class = "verse rounded-2"><p class = "m-0 px-1 py-1">1 And now, behold, my beloved brethren, I suppose that ye ponder somewhat in your hearts concerning that which ye should do after ye have entered in by the way.  But, behold, why do ye ponder these things in your hearts?</p></li>
+                    <li id="2 ne_32.2" class = "verse"><p class = "m-0 px-1 py-1">2 Do ye not remember that I said unto you that after ye had received the Holy Ghost ye could speak with the tongue of angels? And now, how could ye speak with the tongue of angels save it were by the Holy Ghost?</p></li>
+                    <li id="2 ne_32.3" class = "verse"><p class = "m-0 px-1 py-1">3 Angels speak by the power of the Holy Ghost; wherefore, they speak the words of Christ.  Wherefore, I said unto you, feast upon the words of Christ; for behold, the words of Christ will tell you all things what ye should do.</p></li>
+                    <li id="2 ne_32.4" class = "verse"><p class = "m-0 px-1 py-1">4 Wherefore, now after I have spoken these words, if ye cannot understand them it will be because ye ask not, neither do ye knock; wherefore, ye are not brought into the light, but must perish in the dark.</p></li>
+                    <li id="2 ne_32.5" class = "verse"><p class = "m-0 px-1 py-1">5 For behold, again I say unto you that if ye will enter in by the way, and receive the Holy Ghost, it will show unto you all things what ye should do.</p></li>
+                    <li id="2 ne_32.6" class = "verse"><p class = "m-0 px-1 py-1">6 Behold, this is the doctrine of Christ, and there will be no more doctrine given until after he shall manifest himself unto you in the flesh.  And when he shall manifest himself unto you in the flesh, the things which he shall say unto you shall ye observe to do.</p></li>
+                    <li id="2 ne_32.7" class = "verse"><p class = "m-0 px-1 py-1">7 And now I, Nephi, cannot say more; the Spirit stoppeth mine utterance, and I am left to mourn because of the unbelief, and the wickedness, and the ignorance, and the stiffneckedness of men; for they will not search knowledge, nor understand great knowledge, when it is given unto them in plainness, even as plain as word can be.</p></li>
+                    <li id="2 ne_32.8" class = "verse"><p class = "m-0 px-1 py-1">8 And now, my beloved brethren, I perceive that ye ponder still in your hearts; and it grieveth me that I must speak concerning this thing.  For if ye would hearken unto the Spirit which teacheth a man to pray, ye would know that ye must pray; for the evil spirit teacheth not a man to pray, but teacheth him that he must not pray.</p></li>
+                    <li id="2 ne_32.9" class = "verse"><p class = "m-0 px-1 py-1">9 But behold, I say unto you that ye must pray always, and not faint; that ye must not perform any thing unto the Lord save in the first place ye shall pray unto the Father in the name of Christ, that he will consecrate thy performance unto thee, that thy performance may be for the welfare of thy soul.</p></li>
+                </ul>
+            </div>
+
+			<div class = "text-center"><button id = "SaveFlashcard" class = "btn btn-primary "><a href = "deck-editor.html" class = "pageLink">Save</a></button></div>
+        </div>
+	</main>
+
+	<footer class = "text-center">
+		<div>
+			<hr>
+			Created by: Owen Werts
+			<br>
+			<a href = https://github.com/SimicNinja/Scripture-Power-Index>Source GitHub</a>
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

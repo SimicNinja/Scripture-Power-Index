@@ -1,0 +1,81 @@
+#navigationBar
+{
+    width: 100vw;
+    --bs-navbar-color: green;
+}
+
+#navigationMenu .nav-item
+{
+    color: green;
+    background-color: black !important;
+    font-size: clamp(10px, 4vw, 30px);
+    text-decoration: underline;
+}
+
+#scriptureImgTop
+{
+    width: 100vw;
+    max-height: 35vh;
+}
+
+#scriptureImgNavBar
+{
+    width: 50vw;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus, .btn-primary:hover
+{
+    color: white;
+    background-color: green;
+    border-color: green;
+}
+
+#navigationBar .btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus, .btn-primary:hover
+{
+    
+    width: 11vw;
+    max-width: 60px;
+    height: 11vw;
+    max-height: 60px;
+}
+
+#ScriptureBreadcrumb
+{
+    color: green;
+    font-size: clamp(10px, 4vw, 30px);
+    text-decoration: underline;
+    --bs-breadcrumb-divider: '>';
+}
+
+.pageLink
+{
+    color: white;
+    text-decoration: none;
+}
+
+.bi
+{
+    color: white;
+    font-size: clamp(10px, 4vw, 30px);
+}
+
+.rounded-2
+{
+    background-color: rgb(106, 169, 194);
+}
+
+h1
+{
+    font-size: 2rem;
+}
+
+p
+{
+    text-align: justify !important;
+    font-size: 1em;
+}
+
+ul
+{
+    list-style-type: none;
+}
