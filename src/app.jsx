@@ -16,12 +16,12 @@ export default function App()
 				<div className = "container-fluid">
 					<div className = "d-flex justify-content-end">
 						<div className = "flex-grow-1">
-							<button className = "btn btn-primary navbar-toggler" data-bs-toggle = "collapse" data-bs-target = "#navigationMenu"
+							<button className = "btn btn-primary navbar-toggler me-2" data-bs-toggle = "collapse" data-bs-target = "#navigationMenu"
 							aria-controls = "navigationMenu" aria-expanded = "false" aria-label = "Toggle navigation">
 								<span className="bi bi-list"></span>
 							</button>
 
-							<button className = "btn btn-primary"><a href = "login.html"><span className = "bi bi-person-circle"></span></a></button>
+							<button className = "btn btn-primary me-2"><a href = "login.html"><span className = "bi bi-person-circle"></span></a></button>
 							<button className = "btn btn-primary" onClick = "toggleNotifications()"><span className="bi bi-bell"></span></button>
 						</div>
 					</div>
