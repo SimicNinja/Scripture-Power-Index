@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export function DeckEditor()
 {
@@ -32,7 +33,10 @@ export function DeckEditor()
 			</table>
 		</div>
 
-		<div className = "text-center"><button id = "Flashcard Edit" className = "btn btn-primary "><a href = "flashcard-editor.html" className = "pageLink">New Flashcard</a></button></div>
+		<div className = "text-center"><button id = "Flashcard Edit" className = "btn btn-primary"><NavLink className = "button-link" to = "card-edit">New Flashcard</NavLink></button></div>
+		<div className = "mx-auto mt-3" style = {{width: "40vw"}}>
+					<button type = "submit" className = "btn btn-primary">Sign In</button>
+				</div>
 	</main>
 	)
 }

@@ -8,7 +8,6 @@ export function Login()
         <h1 className = "text-center my-3">Scripture Power Login</h1>
 
         <div className = "d-sm-none px-4 py-2">
-			SMALL
 			<form method = "get" action = "deck-management.html">
 				<div>
 					<label for = "emailInput" className = "form-label">Email Address</label>
@@ -23,12 +22,11 @@ export function Login()
 				<div className = "mt-3">
 					<button type = "submit" className = "btn btn-primary">Sign In</button>
 				</div>
-				<span>Don't have a login yet? Register <a href="registration.html">here</a></span>
+				<span>Don't have a login yet? Register <NavLink className = "page-link" to = "register">here</NavLink></span>
 			</form>
 		</div>
 
 		<div className = "d-none d-sm-block mx-auto py-2" style = {{width: "350px"}}>
-			LARGE
 			<form method = "get" action = "deck-management.html">
 				<div>
 					<label for = "emailInput" className = "form-label">Email Address</label>
@@ -43,7 +41,7 @@ export function Login()
 				<div className = "mx-auto mt-3" style = {{width: "40vw"}}>
 					<button type = "submit" className = "btn btn-primary">Sign In</button>
 				</div>
-				<span>Don't have a login yet? Register <a href="registration.html">here</a></span>
+				<span>Don't have a login yet? Register <NavLink className = "page-link" to = "register">here</NavLink></span>
 			</form>
 		</div>
 	</main>

@@ -62,7 +62,7 @@ export default function App()
 				<hr/>
 				Created by: Owen Werts
 				<br/>
-				<a href = "https://github.com/SimicNinja/Scripture-Power-Index">Source GitHub</a>
+				<a className = "page-link" href = "https://github.com/SimicNinja/Scripture-Power-Index">Source GitHub</a>
 			</div>
 		</footer>
 	</BrowserRouter>

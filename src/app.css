@@ -32,7 +32,6 @@
 
 #navigationBar .btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus, .btn-primary:hover
 {
-    
     width: 11vw;
     max-width: 60px;
     height: 11vw;
@@ -54,10 +53,17 @@
     text-decoration: underline;
 }
 
-.pageLink
+.button-link
 {
     color: white;
     text-decoration: none;
+}
+
+.page-link
+{
+    display: inline;
+    color: blue;
+    text-decoration: underline;
 }
 
 .bi

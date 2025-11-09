@@ -14,7 +14,7 @@ export function About()
 				The main goal is to minimize your time spent on creating flashcards by having all of the verses popluated by the application given a specific reference (i.e. 1 Nephi 3:7).
 				Furthurmore, you can draw upon all the flashcard decks that other individuals have made!
 			</p>
-			<h2 className = "text-center">Please <NavLink className = "nav-link" to = "login">Login</NavLink> to Continue!</h2>
+			<h2 className = "text-center">Please <NavLink className = "page-link" to = "login">Login</NavLink> to Continue!</h2>
 		</div>
 	</main>
 	)
