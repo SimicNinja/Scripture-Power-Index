@@ -35,7 +35,7 @@ export function DeckEditor()
 
 		<div className = "text-center"><button id = "Flashcard Edit" className = "btn btn-primary">
 			
-			<NavLink className = "button-link" to = "card-edit">New Flashcard</NavLink></button></div>
+			<NavLink className = "button-link" to = "/card-edit">New Flashcard</NavLink></button></div>
 	</main>
 	)
 }
