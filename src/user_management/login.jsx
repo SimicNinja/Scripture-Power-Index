@@ -26,7 +26,7 @@ export function Login()
 			</form>
 		</div>
 
-		<div className = "d-none d-sm-block mx-auto py-2" style = {{width: "350px"}}>
+		<div className = "d-none d-sm-block mx-auto py-2" style = {{width: "400px"}}>
 			<form method = "get" action = "deck-management.html">
 				<div>
 					<label for = "emailInput" className = "form-label">Email Address</label>
@@ -41,7 +41,7 @@ export function Login()
 				<div className = "mx-auto mt-3" style = {{width: "40vw"}}>
 					<button type = "submit" className = "btn btn-primary">Sign In</button>
 				</div>
-				<span>Don't have a login yet? Register <NavLink className = "page-link" to = "register">here</NavLink></span>
+				<span>Don't have a login yet? Register <NavLink className = "page-link" to = "/register">here</NavLink></span>
 			</form>
 		</div>
 	</main>
