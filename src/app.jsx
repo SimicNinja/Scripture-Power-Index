@@ -40,7 +40,7 @@ export default function App()
 					<div className = "collapse navbar-collapse" id = "navigationMenu">
 						<ul className = "navbar-nav flex-column flex-lg-row">
 							<li className = "nav-item"><NavLink className = "nav-link" to = "/">About Scripture Power</NavLink></li>
-							<li className = "nav-item"><NavLink className = "nav-link" to = "deck-edit">Deck Library</NavLink></li>
+							<li className = "nav-item"><NavLink className = "nav-link" to = "decks">Deck Library</NavLink></li>
 						</ul>
 					</div>
 					
