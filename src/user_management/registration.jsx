@@ -1,6 +1,6 @@
 import React from "react";
-import {NavLink, useNavigate} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import {NavLink, useNavigate} from "react-router-dom";
 
 export function Registration(props)
 {

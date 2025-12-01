@@ -58,12 +58,18 @@ export default function App()
 
 		<Routes>
 			<Route path = "/" element = {<About/>} exact/>
-			<Route path = "/login" element = {<Login/>}/>
+			<Route path = "/login" element = {<Login
+				onLogin = {(email, password) =>
+				{
+					setEmail(email);
+					setPassword(password);
+					setAuthState(AuthState.Authenticated);
+				}}/>}/>
 			<Route path = "/register" element = {<Registration
 				onRegister = {(email, password) =>
 				{
-					setEmail(email)
-					setPassword(password)
+					setEmail(email);
+					setPassword(password);
 					setAuthState(AuthState.Authenticated);
 				}}/>}/>
 			<Route path = "/decks" element = {<DeckManager/>}/>
