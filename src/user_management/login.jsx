@@ -20,6 +20,7 @@ export function Login(props)
 	<main>
         <h1 className = "text-center my-3">Scripture Power Login</h1>
 
+		{/* Mobile Version */}
         <div className = "d-sm-none px-4 py-2">
 			<div>
 				<div>
@@ -35,12 +36,16 @@ export function Login(props)
 					<div id = "passwordHelp" className = "form-text">Your password must be at least 10 character long</div>
 				</div>
 				<div className = "mt-3">
-					<Button variant = "primary" onClick = {() => loginUser()}>Login</Button>
+					<Button variant = "primary" onClick = {() => loginUser()} disabled = {!email || !password}>Login</Button>
+				</div>
+				<div>
+					{(!email || !password) && <span className = "error">You must provide an email and password!</span>}
 				</div>
 				<span>Don't have a login yet? Register <NavLink className = "page-link" to = "register">here</NavLink></span>
 			</div>
 		</div>
 
+		{/* Desktop Version */}
 		<div className = "d-none d-sm-block mx-auto py-2" style = {{width: "400px"}}>
 			<div>
 				<div>
@@ -56,7 +61,10 @@ export function Login(props)
 					<div id = "passwordHelp" className = "form-text">Your password must be at least 10 character long</div>
 				</div>
 				<div className = "mx-auto mt-3" style = {{width: "40vw"}}>
-					<Button variant = "primary" onClick = {() => loginUser()}>Login</Button>
+					<Button variant = "primary" onClick = {() => loginUser()} disabled = {!email || !password}>Login</Button>
+				</div>
+				<div>
+					{(!email || !password) && <span className = "error">You must provide an email and password!</span>}
 				</div>
 				<span>Don't have a login yet? Register <NavLink className = "page-link" to = "/register">here</NavLink></span>
 			</div>

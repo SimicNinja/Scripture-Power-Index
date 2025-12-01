@@ -36,7 +36,10 @@ export function Registration(props)
 					<div id = "passwordHelp" className = "form-text">Your password must be at least 10 character long</div>
 				</div>
 				<div className = "mt-3">
-					<Button variant = "primary" onClick = {() => createUser()}>Register</Button>
+					<Button variant = "primary" onClick = {() => createUser()} disabled = {!email || !password}>Register</Button>
+				</div>
+				<div>
+					{(!email || !password) && <span className = "error">You must provide an email and password!</span>}
 				</div>
 				<span>Already have an account? Login <NavLink className = "page-link" to = "/login">here</NavLink></span>
 			</div>
@@ -58,7 +61,10 @@ export function Registration(props)
 					<div id = "passwordHelp" className = "form-text">Your password must be at least 10 character long</div>
 				</div>
 				<div className = "mt-3">
-					<Button variant = "primary" onClick = {() => createUser()}>Register</Button>
+					<Button variant = "primary" onClick = {() => createUser()} disabled = {!email || !password}>Register</Button>
+				</div>
+				<div>
+					{(!email || !password) && <span className = "error">You must provide an email and password!</span>}
 				</div>
 				<span>Already have an account? Login <NavLink className = "page-link" to = "/login">here</NavLink></span>
 			</div>

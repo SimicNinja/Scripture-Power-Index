@@ -30,6 +30,12 @@
     border-color: green;
 }
 
+.btn:disabled
+{
+    background-color: gray;
+    border-color: gray;
+}
+
 #toggleButton, #profileButton, #notificationButton
 {
     width: 11vw;
@@ -73,6 +79,11 @@
 .nav-link.active, .nav-link:hover, a:hover
 {
     color: lightgreen !important;
+}
+
+.error
+{
+    color: red;
 }
 
 h1
