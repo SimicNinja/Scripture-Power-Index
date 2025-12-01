@@ -1,49 +1,67 @@
 import React from "react";
-import { Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
-export function Registration()
+export function Registration(props)
 {
+	const [email, setEmail] = React.useState("");
+	const [password, setPassword] = React.useState("");
+	const navigate = useNavigate();
+
+	async function createUser()
+	{
+		localStorage.setItem("email", email);
+		localStorage.setItem("password", password);
+		props.onRegister(email, password);
+		navigate("/decks");
+	}
+
 	return (
 	<main>
-		<h1 class = "text-center my-3">Registration</h1>
+		<h1 className = "text-center my-3">Registration</h1>
 
+		{/* Mobile Version */}
 		<div className = "d-sm-none px-4 py-2">
-			<form method = "get" action = "deck-management.html">
+			<div>
 				<div>
-					<label for = "emailInput" class = "form-label">Email Address</label>
-					<input type = "email" class = "form-control" id = "emailInput" aria-describedby = "emailHelp"/>
-					<div id = "emailHelp" class = "form-text">Your email will never be shared. We simply use it for password reset.</div>
+					<label for = "emailInput" className = "form-label">Email Address</label>
+					<input type = "email" className = "form-control" id = "emailInput" aria-describedby = "emailHelp"
+						onChange = {(e) => setEmail(e.target.value)}/>
+					<div id = "emailHelp" className = "form-text">Your email will never be shared. We simply use it for password reset.</div>
 				</div>
-				<div class = "mt-3">
-					<label for = "passwordInput" class = "form-label">Password</label>
-					<input type = "password" class = "form-control" id = "passwordInput" aria-describedby="passwordHelp"/>
-					<div id = "passwordHelp" class = "form-text">Your password must be at least 10 character long</div>
+				<div className = "mt-3">
+					<label for = "passwordInput" className = "form-label">Password</label>
+					<input type = "password" className = "form-control" id = "passwordInput" aria-describedby="passwordHelp"
+						onChange = {(e) => setPassword(e.target.value)}/>
+					<div id = "passwordHelp" className = "form-text">Your password must be at least 10 character long</div>
 				</div>
-				<div class = "mt-3">
-					<button type = "submit" class = "btn btn-primary">Register</button>
+				<div className = "mt-3">
+					<Button variant = "primary" onClick = {() => createUser()}>Register</Button>
 				</div>
 				<span>Already have an account? Login <NavLink className = "page-link" to = "/login">here</NavLink></span>
-			</form>
+			</div>
 		</div>
 
+		{/* Desktop Version */}
 		<div className = "d-none d-sm-block mx-auto py-2" style = {{width: "400px"}}>
-			<form method = "get" action = "deck-management.html">
+			<div>
 				<div>
-					<label for = "emailInput" class = "form-label">Email Address</label>
-					<input type = "email" class = "form-control" id = "emailInput" aria-describedby = "emailHelp"/>
-					<div id = "emailHelp" class = "form-text">Your email will never be shared. We simply use it for password reset.</div>
+					<label for = "emailInput" className = "form-label">Email Address</label>
+					<input type = "email" className = "form-control" id = "emailInput" aria-describedby = "emailHelp"
+						onChange = {(e) => setEmail(e.target.value)}/>
+					<div id = "emailHelp" className = "form-text">Your email will never be shared. We simply use it for password reset.</div>
 				</div>
-				<div class = "mt-3">
-					<label for = "passwordInput" class = "form-label">Password</label>
-					<input type = "password" class = "form-control" id = "passwordInput" aria-describedby="passwordHelp"/>
-					<div id = "passwordHelp" class = "form-text">Your password must be at least 10 character long</div>
+				<div className = "mt-3">
+					<label for = "passwordInput" className = "form-label">Password</label>
+					<input type = "password" className = "form-control" id = "passwordInput" aria-describedby="passwordHelp"
+						onChange = {(e) => setPassword(e.target.value)}/>
+					<div id = "passwordHelp" className = "form-text">Your password must be at least 10 character long</div>
 				</div>
-				<div class = "mt-3">
-					<button type = "submit" class = "btn btn-primary">Register</button>
+				<div className = "mt-3">
+					<Button variant = "primary" onClick = {() => createUser()}>Register</Button>
 				</div>
 				<span>Already have an account? Login <NavLink className = "page-link" to = "/login">here</NavLink></span>
-			</form>
+			</div>
 		</div>
 	</main>
 	)

@@ -9,9 +9,14 @@ import { Registration } from './user_management/registration';
 import { DeckManager } from './decks/deck-management';
 import { DeckEditor } from './decks/deck-editor';
 import { CardEditor } from './decks/flashcard-editor';
+import { AuthState } from './user_management/AuthState';
 
 export default function App()
 {
+	const [email, setEmail] = React.useState(localStorage.getItem("email") || "");
+	const [password, setPassword] = React.useState("");
+	const [authState, setAuthState] = React.useState(AuthState.Unauthenticated);
+
 	return (
 	<BrowserRouter>
 		<header className = "d-flex flex-wrap align-items-center justify-content-start border-bottom">
@@ -28,7 +33,7 @@ export default function App()
 							</button>
 
 							<button className = "btn btn-primary me-2" id = "profileButton">
-								<NavLink to = "Login"><span className = "bi bi-person-circle"></span></NavLink>
+								<NavLink to = "login"><span className = "bi bi-person-circle"></span></NavLink>
 							</button>
 							<button className = "btn btn-primary" onClick = "toggleNotifications()" id = "notificationButton">
 								<span className="bi bi-bell"/></button>
@@ -54,7 +59,13 @@ export default function App()
 		<Routes>
 			<Route path = "/" element = {<About/>} exact/>
 			<Route path = "/login" element = {<Login/>}/>
-			<Route path = "/register" element = {<Registration/>}/>
+			<Route path = "/register" element = {<Registration
+				onRegister = {(email, password) =>
+				{
+					setEmail(email)
+					setPassword(password)
+					setAuthState(AuthState.Authenticated);
+				}}/>}/>
 			<Route path = "/decks" element = {<DeckManager/>}/>
 			<Route path = "/deck-edit" element = {<DeckEditor/>}/>
 			<Route path = "/card-edit" element = {<CardEditor/>}/>
