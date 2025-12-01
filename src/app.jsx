@@ -20,7 +20,8 @@ export default function App()
 	return (
 	<BrowserRouter>
 		<header className = "d-flex flex-wrap align-items-center justify-content-start border-bottom">
-			<img className = "img-fluid d-none d-lg-block" id = "scriptureImgTop" src = "scriptures_eye_glasses.jpeg" alt = "Image of the scripture lying open with a pair of glasses lying on top of them."/>
+			<img className = "img-fluid d-none d-lg-block" id = "scriptureImgTop" src = "scriptures_eye_glasses.jpeg"
+			alt = "Image of the scripture lying open with a pair of glasses lying on top of them."/>
 
 			<nav className = "navbar navbar-expand-lg bg-black" id = "navigationBar">
 				<div className = "container-fluid">
@@ -32,20 +33,26 @@ export default function App()
 								<span className="bi bi-list"></span>
 							</button>
 
+							{authState === AuthState.Authenticated && 
 							<button className = "btn btn-primary me-2" id = "profileButton">
 								<NavLink to = "login"><span className = "bi bi-person-circle"></span></NavLink>
-							</button>
+							</button>}
+
+							{authState === AuthState.Authenticated && 
 							<button className = "btn btn-primary" onClick = "toggleNotifications()" id = "notificationButton">
-								<span className="bi bi-bell"/></button>
+								<span className="bi bi-bell"/>
+							</button>}
 						</div>
 					</div>
 
-					<img className = "img-fluid d-block d-lg-none" id = "scriptureImgNavBar" src = "scriptures_eye_glasses.jpeg" alt = "Image of the scripture lying open with a pair of glasses lying on top of them."/>
+					<img className = "img-fluid d-block d-lg-none" id = "scriptureImgNavBar" src = "scriptures_eye_glasses.jpeg"
+					alt = "Image of the scripture lying open with a pair of glasses lying on top of them."/>
 
 					<div className = "collapse navbar-collapse" id = "navigationMenu">
 						<ul className = "navbar-nav flex-column flex-lg-row">
+							{authState === AuthState.Unauthenticated && <li className = "nav-item"><NavLink className = "nav-link" to = "/login">Login</NavLink></li>}
 							<li className = "nav-item"><NavLink className = "nav-link" to = "/">About Scripture Power</NavLink></li>
-							<li className = "nav-item"><NavLink className = "nav-link" to = "decks">Deck Library</NavLink></li>
+							{authState === AuthState.Authenticated && <li className = "nav-item"><NavLink className = "nav-link" to = "decks">Deck Library</NavLink></li>}
 						</ul>
 					</div>
 					

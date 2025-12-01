@@ -35,7 +35,7 @@ export function Login(props)
 						onChange = {(e) => setPassword(e.target.value)}/>
 					<div id = "passwordHelp" className = "form-text">Your password must be at least 10 character long</div>
 				</div>
-				<div className = "mt-3">
+				<div className = "mt-2">
 					<Button variant = "primary" onClick = {() => loginUser()} disabled = {!email || !password}>Login</Button>
 				</div>
 				<div>
@@ -60,7 +60,7 @@ export function Login(props)
 						onChange = {(e) => setPassword(e.target.value)}/>
 					<div id = "passwordHelp" className = "form-text">Your password must be at least 10 character long</div>
 				</div>
-				<div className = "mx-auto mt-3" style = {{width: "40vw"}}>
+				<div className = "mx-auto mt-2" style = {{width: "40vw"}}>
 					<Button variant = "primary" onClick = {() => loginUser()} disabled = {!email || !password}>Login</Button>
 				</div>
 				<div>

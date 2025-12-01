@@ -35,7 +35,7 @@ export function Registration(props)
 						onChange = {(e) => setPassword(e.target.value)}/>
 					<div id = "passwordHelp" className = "form-text">Your password must be at least 10 character long</div>
 				</div>
-				<div className = "mt-3">
+				<div className = "mt-2">
 					<Button variant = "primary" onClick = {() => createUser()} disabled = {!email || !password}>Register</Button>
 				</div>
 				<div>
@@ -60,7 +60,7 @@ export function Registration(props)
 						onChange = {(e) => setPassword(e.target.value)}/>
 					<div id = "passwordHelp" className = "form-text">Your password must be at least 10 character long</div>
 				</div>
-				<div className = "mt-3">
+				<div className = "mt-2">
 					<Button variant = "primary" onClick = {() => createUser()} disabled = {!email || !password}>Register</Button>
 				</div>
 				<div>
