@@ -35,9 +35,9 @@ export function DeckManager()
 			</table>
 		</div>
 
-		<div className = "text-center"><button id = "Create Deck" className = "btn btn-primary ">
-			<NavLink className = "button-link" to = "/deck-edit">Create a New Deck</NavLink>
-		</button></div>
+		<div className = "text-center">
+			<NavLink className = "btn btn-primary" to = "/deck-edit">Create a New Deck</NavLink>
+		</div>
 	</main>
 	)
 }

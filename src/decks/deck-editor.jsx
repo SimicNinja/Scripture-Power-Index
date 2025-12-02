@@ -33,9 +33,9 @@ export function DeckEditor()
 			</table>
 		</div>
 
-		<div className = "text-center"><button id = "Flashcard Edit" className = "btn btn-primary">
-			
-			<NavLink className = "button-link" to = "/card-edit">New Flashcard</NavLink></button></div>
+		<div className = "text-center">
+			<NavLink className = "btn btn-primary" to = "/chapter-select">New Flashcard</NavLink>
+		</div>
 	</main>
 	)
 }

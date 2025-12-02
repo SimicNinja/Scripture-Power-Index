@@ -1,5 +1,4 @@
 import React from 'react';
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
@@ -10,12 +9,14 @@ import {DeckManager} from './decks/deck-management';
 import {DeckEditor} from './decks/deck-editor';
 import {CardEditor} from './decks/flashcard-editor';
 import {AuthState} from './user_management/AuthState';
+import {ChapterSelection} from './cards/chapterSelction';
 
 export default function App()
 {
 	const [email, setEmail] = React.useState(localStorage.getItem("email") || "");
 	const [password, setPassword] = React.useState("");
 	const [authState, setAuthState] = React.useState(AuthState.Unauthenticated);
+	const [payload, setPayload] = React.useState(null);
 
 	return (
 	<BrowserRouter>
@@ -34,9 +35,8 @@ export default function App()
 							</button>
 
 							{authState === AuthState.Authenticated && 
-							<button className = "btn btn-primary me-2" id = "profileButton">
-								<NavLink to = "login"><span className = "bi bi-person-circle"></span></NavLink>
-							</button>}
+								<NavLink className = "btn btn-primary me-2" to = "login"><span className = "bi bi-person-circle"></span></NavLink>
+							}
 
 							{authState === AuthState.Authenticated && 
 							<button className = "btn btn-primary" onClick = "toggleNotifications()" id = "notificationButton">
@@ -81,7 +81,8 @@ export default function App()
 				}}/>}/>
 			<Route path = "/decks" element = {<DeckManager/>}/>
 			<Route path = "/deck-edit" element = {<DeckEditor/>}/>
-			<Route path = "/card-edit" element = {<CardEditor/>}/>
+			<Route path = "/chapter-select" element = {<ChapterSelection setPayload = {setPayload}/>}/>
+			<Route path = "/card-edit" element = {<CardEditor scriptures = {payload}/>}/>
 			<Route path = "*" element = {<NotFound/>}/>
 		</Routes>
 
