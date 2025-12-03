@@ -4,7 +4,12 @@ import Button from 'react-bootstrap/Button';
 
 export function CardEditor(props)
 {
-	const [flashcardID, setFlashcardID] = useState("untitled");
+	const [flashcardID, setFlashcardID] = useState(() =>
+	{
+		const firstVerse = props.scriptures[0];
+		return `${firstVerse.book} ${firstVerse.chapter}`;
+	}
+	);
 	const [selectedVerses, setVerses] = useState([]);
 
 	function toggleVerse(verse)
@@ -28,11 +33,12 @@ export function CardEditor(props)
 	{
 		const sorted = [...selectedVerses].sort((a, b) => a.verseID - b.verseID);
 		const verseNumbers = sorted.map(v => parseInt(v.verseID, 10));
+		const firstVerse = props.scriptures[0]
 
 		// Handle empty selection
 		if (verseNumbers.length === 0) 
 		{
-			return;
+			return `${firstVerse.book} ${firstVerse.chapter}`;
 		}
 
 		let ranges = [];
@@ -57,7 +63,6 @@ export function CardEditor(props)
 		ranges.push(start === end ? `${start}` : `${start}-${end}`);
 
 		// Get book & chapter from first verse in props.scriptures
-		const firstVerse = props.scriptures.find(v => v.verse === verseNumbers[0]);
 		return `${firstVerse.book} ${firstVerse.chapter}:${ranges.join(',')}`;
 	}
 
@@ -76,12 +81,13 @@ export function CardEditor(props)
 	<main>
 		<h1 className = "text-center pt-2">Flashcard Editor</h1>
 
-		{/* <!-- Shell of how access to scripture API will operate with javascript support.--> */}
+		<h2 className = "text-center my-3">{flashcardID}</h2>
+
 		<div className = "Verse Selection Pane">
-			<p className = "px-3">Select the verse(s) you would like on your flashcard. Use the links above to navigate.</p>
+			<h3 className = "text-center">Select the verse(s) you would like on your flashcard. Use the links above to navigate.</h3>
 
 			<div>
-				<ul className = "Verse Block px-3 m-0">
+				<ul className = "Verse Block px-4 m-0">
 				{
 					props.scriptures.map(v => (
 					<Verse 
@@ -94,6 +100,8 @@ export function CardEditor(props)
 				}
 				</ul>
 			</div>
+
+			<h2 className = "text-center my-3">{flashcardID}</h2>
 
 			<div className = "text-center">
 				<Button variant = "primary" onClick = {saveFlashcard}>Save Flashcard</Button>
