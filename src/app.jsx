@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, use} from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
@@ -18,16 +18,28 @@ export default function App()
 	const [authState, setAuthState] = useState(AuthState.Unauthenticated);
 	const [chapterPayload, setChapter] = useState(null);
 	const [currentDeck, setCurrentDeck] = useState({title: "", flashcards: []});
+	const [currentFlashcard, setCurrentFlashcard] = useState({flashcardID: "", verses: []});
 	const [decks, setDecks] = useState(() => 
 	{
-		const storedDecks = localStorage.getItem("decks");
-		return storedDecks ? JSON.parse(storedDecks) : [];
+		// const storedDecks = localStorage.getItem("decks");
+		// return storedDecks ? JSON.parse(storedDecks) : [];
+		return [];
 	});
 
 	useEffect(() =>
 	{
 		localStorage.setItem("decks", JSON.stringify(decks));
 	}, [decks]);
+
+	useEffect(() =>
+	{
+		const updatedDeck = 
+		{
+			...currentDeck, flashcards: [...currentDeck.flashcards, currentFlashcard]
+		}
+		setCurrentDeck(updatedDeck);
+		setDecks(prevDecks => prevDecks.map(deck => deck.id === updatedDeck.id ? updatedDeck : deck));
+	}, [currentFlashcard]);
 
 	return (
 	<BrowserRouter>
@@ -91,9 +103,9 @@ export default function App()
 					setAuthState(AuthState.Authenticated);
 				}}/>}/>
 			<Route path = "/decks" element = {<DeckManager decks = {decks} setDecks = {setDecks} setCurrentDeck = {setCurrentDeck}/>}/>
-			<Route path = "/deck-edit" element = {<DeckEditor/>}/>
+			<Route path = "/deck-edit" element = {<DeckEditor currentDeck = {currentDeck} setFlashcard = {setCurrentFlashcard}/>}/>
 			<Route path = "/chapter-select" element = {<ChapterSelection setPayload = {setChapter}/>}/>
-			<Route path = "/card-edit" element = {<CardEditor scriptures = {chapterPayload}/>}/>
+			<Route path = "/card-edit" element = {<CardEditor scriptures = {chapterPayload} currentFlashcard = {currentFlashcard} setFlashcard = {setCurrentFlashcard}/>}/>
 			<Route path = "*" element = {<NotFound/>}/>
 		</Routes>
 

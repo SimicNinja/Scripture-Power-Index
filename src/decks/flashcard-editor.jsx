@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from "react";
 import {Verse} from "../cards/verse";
 import Button from 'react-bootstrap/Button';
+import {useNavigate} from "react-router-dom";
 
 export function CardEditor(props)
 {
+	const navigate = useNavigate();
+	const [selectedVerses, setVerses] = useState([]);
 	const [flashcardID, setFlashcardID] = useState(() =>
 	{
 		const firstVerse = props.scriptures[0];
 		return `${firstVerse.book} ${firstVerse.chapter}`;
 	}
 	);
-	const [selectedVerses, setVerses] = useState([]);
 
 	function toggleVerse(verse)
 	{
@@ -63,13 +65,14 @@ export function CardEditor(props)
 		ranges.push(start === end ? `${start}` : `${start}-${end}`);
 
 		// Get book & chapter from first verse in props.scriptures
-		return `${firstVerse.book} ${firstVerse.chapter}:${ranges.join(',')}`;
+		return `${firstVerse.book} ${firstVerse.chapter}:${ranges.join(', ')}`;
 	}
 
 	function saveFlashcard()
 	{
 		const newFlashcard = {id: flashcardID, verses: selectedVerses};
-		console.log("Saved flashcard: ", newFlashcard);
+		props.setFlashcard(newFlashcard);
+		navigate("/deck-edit");
 	}
 
 	useEffect(() =>

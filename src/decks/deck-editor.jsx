@@ -1,8 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import {useNavigate} from "react-router-dom";
 
-export function DeckEditor()
+export function DeckEditor(props)
 {
+	const navigate = useNavigate();
+
+	function newFlashcard()
+	{
+		navigate("/chapter-select");
+	}
+
 	return (
 	<main>
 		<h2 className = "text-center my-3">Deck Title</h2>
@@ -16,25 +24,22 @@ export function DeckEditor()
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td><a href = "flashcard-editor.html">1 Nephi 3:7</a></td>
-						<td>I will go and do...</td>
-						
+					{props.currentDeck.flashcards.map((flashcard, index) => (
+					<tr key = {index}>
+						<td><a href = "flashcard-editor.html">{flashcard.id}</a></td>
+						<td style={{whiteSpace: "pre-wrap"}}>
+							{flashcard.verses.map(v => v.verseText).join("\n")}
+						</td>
 					</tr>
-					<tr>
-						<td><a href = "flashcard-editor.html">Ether 12:27</a></td>
-						<td>And if men come unto me...</td>
-					</tr>
-					<tr>
-						<td><a href = "flashcard-editor.html">2 Nephi 9:50</a></td>
-						<td>Come, my brethren, every one...</td>
-					</tr>
+					))}
 				</tbody>
 			</table>
 		</div>
 
 		<div className = "text-center">
-			<NavLink className = "btn btn-primary" to = "/chapter-select">New Flashcard</NavLink>
+			<div className = "mt-2">
+				<Button variant = "primary" onClick = {newFlashcard}>New Flashcard</Button>
+			</div>
 		</div>
 	</main>
 	)
