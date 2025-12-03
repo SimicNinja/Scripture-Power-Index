@@ -1,8 +1,32 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import Button from 'react-bootstrap/Button';
+import {useNavigate} from "react-router-dom";
 
-export function DeckManager()
+export function DeckManager(props)
 {
+	const [title, setTitle] = useState("");
+	const [showInput, setShowInput] = useState(false);
+	const navigate = useNavigate();
+
+	function makeDeck()
+	{
+		if(!showInput)
+		{
+			setShowInput(true);
+		}
+		else
+		{
+			const newDeck =
+			{
+				title: title,
+				flashcards: []
+			};
+			props.setCurrentDeck(newDeck);
+			props.setDecks(prev => [...prev, newDeck]);
+			navigate("/deck-edit");
+		}
+	}
+
 	return (
 	<main>
 		<p className = "px-4 my-3 text-center">
@@ -35,8 +59,21 @@ export function DeckManager()
 			</table>
 		</div>
 
-		<div className = "text-center">
-			<NavLink className = "btn btn-primary" to = "/deck-edit">Create a New Deck</NavLink>
+		<div className = "text-center mx-auto py-2" style = {{width: "200px"}}>
+			<div className = "mt-2">
+				<Button variant = "primary" onClick = {makeDeck} disabled = {!title && showInput}>New Flashcard Deck</Button>
+			</div>
+			<div>
+				{(!title && showInput) && <span className = "error">You must provide a title to make a new deck!</span>}
+			</div>
+			{showInput && 
+			(	
+				<div className = "mt-2">
+					<input type = "text" className = "form-control" id = "deckTitle" aria-describedby="titleHelp"
+						onChange = {(e) => setTitle(e.target.value)}/>
+					<div id = "titleHelp" className = "form-text">Enter a title for your new deck.</div>
+				</div>
+			)}
 		</div>
 	</main>
 	)

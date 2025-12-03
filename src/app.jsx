@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
@@ -13,10 +13,21 @@ import {ChapterSelection} from './cards/chapterSelction';
 
 export default function App()
 {
-	const [email, setEmail] = React.useState(localStorage.getItem("email") || "");
-	const [password, setPassword] = React.useState("");
-	const [authState, setAuthState] = React.useState(AuthState.Unauthenticated);
-	const [payload, setPayload] = React.useState(null);
+	const [email, setEmail] = useState(localStorage.getItem("email") || "");
+	const [password, setPassword] = useState("");
+	const [authState, setAuthState] = useState(AuthState.Unauthenticated);
+	const [chapterPayload, setChapter] = useState(null);
+	const [currentDeck, setCurrentDeck] = useState({title: "", flashcards: []});
+	const [decks, setDecks] = useState(() => 
+	{
+		const storedDecks = localStorage.getItem("decks");
+		return storedDecks ? JSON.parse(storedDecks) : [];
+	});
+
+	useEffect(() =>
+	{
+		localStorage.setItem("decks", JSON.stringify(decks));
+	}, [decks]);
 
 	return (
 	<BrowserRouter>
@@ -79,10 +90,10 @@ export default function App()
 					setPassword(password);
 					setAuthState(AuthState.Authenticated);
 				}}/>}/>
-			<Route path = "/decks" element = {<DeckManager/>}/>
+			<Route path = "/decks" element = {<DeckManager decks = {decks} setDecks = {setDecks} setCurrentDeck = {setCurrentDeck}/>}/>
 			<Route path = "/deck-edit" element = {<DeckEditor/>}/>
-			<Route path = "/chapter-select" element = {<ChapterSelection setPayload = {setPayload}/>}/>
-			<Route path = "/card-edit" element = {<CardEditor scriptures = {payload}/>}/>
+			<Route path = "/chapter-select" element = {<ChapterSelection setPayload = {setChapter}/>}/>
+			<Route path = "/card-edit" element = {<CardEditor scriptures = {chapterPayload}/>}/>
 			<Route path = "*" element = {<NotFound/>}/>
 		</Routes>
 
