@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Verse} from "../cards/verse";
 import Button from 'react-bootstrap/Button';
 
 export function CardEditor(props)
 {
+	const [flashcardID, setFlashcardID] = useState("untitled");
 	const [selectedVerses, setVerses] = useState([]);
 
 	function toggleVerse(verse)
@@ -23,11 +24,53 @@ export function CardEditor(props)
 		});
 	}
 
+	function generateFlashcardID(selectedVerses)
+	{
+		const sorted = [...selectedVerses].sort((a, b) => a.verseID - b.verseID);
+		const verseNumbers = sorted.map(v => parseInt(v.verseID, 10));
+
+		// Handle empty selection
+		if (verseNumbers.length === 0) 
+		{
+			return;
+		}
+
+		let ranges = [];
+		let start = verseNumbers[0];
+		let end = verseNumbers[0];
+
+		for (let i = 1; i < verseNumbers.length; i++)
+		{
+			// Check if the current verse is consecutive
+			if (verseNumbers[i] === end + 1)
+			{
+				end = verseNumbers[i];
+			}
+			// Not consecutive, save the previous range and start a new one
+			else
+			{
+				ranges.push(start === end ? `${start}` : `${start}-${end}`);
+				start = verseNumbers[i];
+				end = verseNumbers[i];
+			}
+		}
+		ranges.push(start === end ? `${start}` : `${start}-${end}`);
+
+		// Get book & chapter from first verse in props.scriptures
+		const firstVerse = props.scriptures.find(v => v.verse === verseNumbers[0]);
+		return `${firstVerse.book} ${firstVerse.chapter}:${ranges.join(',')}`;
+	}
+
 	function saveFlashcard()
 	{
-		const newFlashcard = {id: Date.now(), verses: selectedVerses};
+		const newFlashcard = {id: flashcardID, verses: selectedVerses};
 		console.log("Saved flashcard: ", newFlashcard);
 	}
+
+	useEffect(() =>
+	{
+		setFlashcardID(generateFlashcardID(selectedVerses));
+	}, [selectedVerses]);
 
 	return (
 	<main>
@@ -42,10 +85,10 @@ export function CardEditor(props)
 				{
 					props.scriptures.map(v => (
 					<Verse 
-						verseID = {v.scripture} 
+						verseID = {v.verse} 
 						verseText = {`${v.verse} ${v.text}`}
-						onToggle = {() => toggleVerse({verseID: v.scripture, verseText: `${v.verse} ${v.text}`})}
-						isSelected = {selectedVerses.some((sv) => sv.verseID === v.scripture)}
+						onToggle = {() => toggleVerse({verseID: v.verse, verseText: `${v.verse} ${v.text}`})}
+						isSelected = {selectedVerses.some((sv) => sv.verseID === v.verse)}
 					/>
 					))
 				}
