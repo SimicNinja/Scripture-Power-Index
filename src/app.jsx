@@ -41,6 +41,11 @@ export default function App()
 		setDecks(prevDecks => prevDecks.map(deck => deck.id === updatedDeck.id ? updatedDeck : deck));
 	}, [currentFlashcard]);
 
+	useEffect(() =>
+	{
+		setDecks(prevDecks => prevDecks.map(deck => deck.id === currentDeck.id ? currentDeck : deck));
+	}, [currentDeck]);
+
 	return (
 	<BrowserRouter>
 		<header className = "d-flex flex-wrap align-items-center justify-content-start border-bottom">
@@ -103,7 +108,7 @@ export default function App()
 					setAuthState(AuthState.Authenticated);
 				}}/>}/>
 			<Route path = "/decks" element = {<DeckManager decks = {decks} setDecks = {setDecks} setCurrentDeck = {setCurrentDeck}/>}/>
-			<Route path = "/deck-edit" element = {<DeckEditor currentDeck = {currentDeck} setFlashcard = {setCurrentFlashcard}/>}/>
+			<Route path = "/deck-edit" element = {<DeckEditor currentDeck = {currentDeck} setCurrentDeck = {setCurrentDeck} setFlashcard = {setCurrentFlashcard}/>}/>
 			<Route path = "/chapter-select" element = {<ChapterSelection setPayload = {setChapter}/>}/>
 			<Route path = "/card-edit" element = {<CardEditor scriptures = {chapterPayload} currentFlashcard = {currentFlashcard} setFlashcard = {setCurrentFlashcard}/>}/>
 			<Route path = "*" element = {<NotFound/>}/>
