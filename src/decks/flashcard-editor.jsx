@@ -84,10 +84,14 @@ export function CardEditor(props)
 	<main>
 		<h1 className = "text-center pt-2">Flashcard Editor</h1>
 
-		<h2 className = "text-center my-3">{flashcardID}</h2>
+		<h2 className = "text-center">Select the verse(s) you would like on your flashcard. Use the links above to navigate.</h2>
 
-		<div className = "Verse Selection Pane">
-			<h3 className = "text-center">Select the verse(s) you would like on your flashcard. Use the links above to navigate.</h3>
+		<h3 className = "text-center my-3">{flashcardID}</h3>
+
+		<div className = "Verse Selection Pane mt-2">
+			<div className = "text-center">
+				<Button variant = "primary" onClick = {saveFlashcard}>Save Flashcard</Button>
+			</div>
 
 			<div>
 				<ul className = "Verse Block px-4 m-0">
@@ -104,7 +108,7 @@ export function CardEditor(props)
 				</ul>
 			</div>
 
-			<h2 className = "text-center my-3">{flashcardID}</h2>
+			<h3 className = "text-center my-3">{flashcardID}</h3>
 
 			<div className = "text-center">
 				<Button variant = "primary" onClick = {saveFlashcard}>Save Flashcard</Button>

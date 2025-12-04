@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
-import {useNavigate} from "react-router-dom";
+import {useNavigate, NavLink} from "react-router-dom";
 
 export function DeckManager(props)
 {
@@ -43,26 +43,30 @@ export function DeckManager(props)
 					</tr>
 				</thead>
 				<tbody className = "table-group-divider">
-					<tr>
-						<td><a className = "link" href = "deck-editor.html">Scripture Mastery</a></td>
-						<td>100</td>
-						<td>The Church of Jesus Christ of Latter-day Saints</td>
-						<td className = "d-none d-lg-table-cell">2012-07-13</td>
+					{props.decks.map((deck, index) => (
+					<tr key = {index}>
+						<td><NavLink to = "/deck-edit" onClick =
+							{
+								() => props.setCurrentDeck(deck)
+							}>
+							{deck.title}</NavLink>
+						</td>
+						<td>{deck.flashcards.length}</td>
+						<td>{"You"}</td>
+						<td className = "d-none d-lg-table-cell">{"N/A"}</td>						
 					</tr>
-					<tr>
-						<td><a className = "link" href = "deck-editor.html">The Restoration</a></td>
-						<td>18</td>
-						<td>You</td>
-						<td className = "d-none d-lg-table-cell">2023-04-08</td>
-					</tr>
+					))}
 				</tbody>
 			</table>
 		</div>
 
+		{/* New Flashcard Button */}
 		<div className = "text-center mx-auto py-2" style = {{width: "200px"}}>
 			<div className = "mt-2">
 				<Button variant = "primary" onClick = {makeDeck} disabled = {!title && showInput}>New Flashcard Deck</Button>
 			</div>
+
+			{/* Input field that only appears when needed. */}
 			<div>
 				{(!title && showInput) && <span className = "error">You must provide a title to make a new deck!</span>}
 			</div>
