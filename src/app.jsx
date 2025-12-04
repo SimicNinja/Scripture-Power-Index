@@ -42,7 +42,7 @@ export default function App()
 			...currentDeck, flashcards: [...currentDeck.flashcards, currentFlashcard]
 		}
 		setCurrentDeck(updatedDeck);
-		setDecks(prevDecks => prevDecks.map(deck => deck.id === updatedDeck.id ? updatedDeck : deck));
+		setDecks(prevDecks => prevDecks.map(deck => deck.title === updatedDeck.title ? updatedDeck : deck));
 	}, [currentFlashcard]);
 
 	// Update current deck when a flashcard is deleted
@@ -53,14 +53,19 @@ export default function App()
 			...currentDeck, flashcards: currentDeck.flashcards.filter(f => f.id !== deletedFlashcard.id)
 		}
 		setCurrentDeck(updatedDeck);
-		setDecks(prevDecks => prevDecks.map(deck => deck.id === updatedDeck.id ? updatedDeck : deck));
+		setDecks(prevDecks => prevDecks.map(deck => deck.title === updatedDeck.title ? updatedDeck : deck));
 	}, [deletedFlashcard]);
 
-	// Update decks when the current deck is modified
+	// Update decks when the current deck is added or modified
 	useEffect(() =>
 	{
-		setDecks(prevDecks => prevDecks.map(deck => deck.id === currentDeck.id ? currentDeck : deck));
+		setDecks(prevDecks => prevDecks.map(deck => deck.title === currentDeck.title ? currentDeck : deck));
 	}, [currentDeck]);
+
+	useEffect(() =>
+	{
+		setDecks(prevDecks => prevDecks.filter(deck => deck.title !== deletedDeck.title));
+	}, [deletedDeck]);
 
 	return (
 	<BrowserRouter>
@@ -125,7 +130,7 @@ export default function App()
 				}}/>}/>
 			<Route path = "/decks" element = 
 			{
-				<DeckManager decks = {decks} setDecks = {setDecks} setCurrentDeck = {setCurrentDeck}/>
+				<DeckManager decks = {decks} setDecks = {setDecks} setCurrentDeck = {setCurrentDeck} deleteDeck = {setDeletedDeck}/>
 			}/>
 			<Route path = "/deck-edit" element =
 			{

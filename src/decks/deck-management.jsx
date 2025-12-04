@@ -51,8 +51,14 @@ export function DeckManager(props)
 							}>{deck.title}</NavLink>
 						</td>
 						<td>{deck.flashcards.length}</td>
-						<td>{"You"}</td>
-						<td className = "d-none d-lg-table-cell">{"N/A"}</td>						
+						<td className = "d-none d-lg-table-cell">{"You"}</td>
+						<td className = "d-none d-lg-table-cell">{"N/A"}</td>
+						<td>
+							<Button variant = "danger" onClick =
+							{
+								() => props.deleteDeck(deck)
+							}>Delete</Button>
+						</td>				
 					</tr>
 					))}
 				</tbody>
