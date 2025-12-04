@@ -18,7 +18,9 @@ export default function App()
 	const [authState, setAuthState] = useState(AuthState.Unauthenticated);
 	const [chapterPayload, setChapter] = useState(null);
 	const [currentDeck, setCurrentDeck] = useState({title: "", flashcards: []});
+	const [deletedDeck, setDeletedDeck] = useState(null);
 	const [currentFlashcard, setCurrentFlashcard] = useState({flashcardID: "", verses: []});
+	const [deletedFlashcard, setDeletedFlashcard] = useState(null);
 	const [decks, setDecks] = useState(() => 
 	{
 		// const storedDecks = localStorage.getItem("decks");
@@ -26,11 +28,13 @@ export default function App()
 		return [];
 	});
 
+	// Commit decks to local storage whenever they change
 	useEffect(() =>
 	{
 		localStorage.setItem("decks", JSON.stringify(decks));
 	}, [decks]);
 
+	// Update current deck when a new flashcard is added
 	useEffect(() =>
 	{
 		const updatedDeck = 
@@ -41,6 +45,18 @@ export default function App()
 		setDecks(prevDecks => prevDecks.map(deck => deck.id === updatedDeck.id ? updatedDeck : deck));
 	}, [currentFlashcard]);
 
+	// Update current deck when a flashcard is deleted
+	useEffect(() =>
+	{
+		const updatedDeck =
+		{
+			...currentDeck, flashcards: currentDeck.flashcards.filter(f => f.id !== deletedFlashcard.id)
+		}
+		setCurrentDeck(updatedDeck);
+		setDecks(prevDecks => prevDecks.map(deck => deck.id === updatedDeck.id ? updatedDeck : deck));
+	}, [deletedFlashcard]);
+
+	// Update decks when the current deck is modified
 	useEffect(() =>
 	{
 		setDecks(prevDecks => prevDecks.map(deck => deck.id === currentDeck.id ? currentDeck : deck));
@@ -107,10 +123,23 @@ export default function App()
 					setPassword(password);
 					setAuthState(AuthState.Authenticated);
 				}}/>}/>
-			<Route path = "/decks" element = {<DeckManager decks = {decks} setDecks = {setDecks} setCurrentDeck = {setCurrentDeck}/>}/>
-			<Route path = "/deck-edit" element = {<DeckEditor currentDeck = {currentDeck} setCurrentDeck = {setCurrentDeck} setFlashcard = {setCurrentFlashcard}/>}/>
-			<Route path = "/chapter-select" element = {<ChapterSelection setPayload = {setChapter}/>}/>
-			<Route path = "/card-edit" element = {<CardEditor scriptures = {chapterPayload} currentFlashcard = {currentFlashcard} setFlashcard = {setCurrentFlashcard}/>}/>
+			<Route path = "/decks" element = 
+			{
+				<DeckManager decks = {decks} setDecks = {setDecks} setCurrentDeck = {setCurrentDeck}/>
+			}/>
+			<Route path = "/deck-edit" element =
+			{
+				<DeckEditor currentDeck = {currentDeck} setCurrentDeck = {setCurrentDeck}
+				setFlashcard = {setCurrentFlashcard} deleteFlashcard = {setDeletedFlashcard}/>
+			}/>
+			<Route path = "/chapter-select" element =
+			{
+				<ChapterSelection setPayload = {setChapter}/>
+			}/>
+			<Route path = "/card-edit" element =
+			{
+				<CardEditor scriptures = {chapterPayload} currentFlashcard = {currentFlashcard} setFlashcard = {setCurrentFlashcard}/>
+			}/>
 			<Route path = "*" element = {<NotFound/>}/>
 		</Routes>
 

@@ -48,8 +48,7 @@ export function DeckManager(props)
 						<td><NavLink to = "/deck-edit" onClick =
 							{
 								() => props.setCurrentDeck(deck)
-							}>
-							{deck.title}</NavLink>
+							}>{deck.title}</NavLink>
 						</td>
 						<td>{deck.flashcards.length}</td>
 						<td>{"You"}</td>

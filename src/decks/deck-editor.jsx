@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
-import {useNavigate} from "react-router-dom";
+import {useNavigate, NavLink} from "react-router-dom";
 
 export function DeckEditor(props)
 {
@@ -49,9 +49,22 @@ export function DeckEditor(props)
 				<tbody>
 					{props.currentDeck.flashcards.map((flashcard, index) => (
 					<tr key = {index}>
-						<td><a href = "flashcard-editor.html">{flashcard.id}</a></td>
+						<td>
+							<NavLink to = "/flashcard-edit" onClick =
+							{
+								() => props.setCurrentFlashcard(flashcard)
+								// Implment API call based on flashcard ID to get verses
+							}>
+							{flashcard.id}</NavLink>
+						</td>
 						<td style={{whiteSpace: "pre-wrap"}}>
 							{flashcard.verses.map(v => v.verseText).join("\n")}
+						</td>
+						<td>
+							<Button variant = "danger" onClick =
+							{
+								() => props.deleteFlashcard(flashcard)
+							}>Delete</Button>
 						</td>
 					</tr>
 					))}
