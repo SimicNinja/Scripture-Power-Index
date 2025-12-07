@@ -1,107 +1,150 @@
 #navigationBar
 {
-    width: 100vw;
-    --bs-navbar-color: green;
+	width: 100vw;
+	--bs-navbar-color: green;
 }
 
 #navigationMenu .nav-item
 {
-    color: green;
-    background-color: black !important;
-    font-size: clamp(10px, 4vw, 30px);
-    text-decoration: underline;
+	color: green;
+	background-color: black !important;
+	font-size: clamp(10px, 4vw, 30px);
+	text-decoration: underline;
 }
 
 #scriptureImgTop
 {
-    width: 100vw;
-    max-height: 35vh;
+	width: 100vw;
+	max-height: 35vh;
 }
 
 #scriptureImgNavBar
 {
-    width: 40vw;
+	width: 40vw;
 }
 
 .btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus, .btn-primary:hover
 {
-    color: white;
-    background-color: green;
-    border-color: green;
+	color: white;
+	background-color: green;
+	border-color: green;
 }
 
 .btn:disabled
 {
-    background-color: gray;
-    border-color: gray;
+	background-color: gray;
+	border-color: gray;
 }
 
 #toggleButton, #profileButton, #notificationButton
 {
-    width: 11vw;
-    max-width: 60px;
-    height: 11vw;
-    max-height: 60px;
+	width: 11vw;
+	max-width: 60px;
+	height: 11vw;
+	max-height: 60px;
 }
 
 #ScriptureBreadcrumb
 {
-    color: green;
-    font-size: clamp(10px, 4vw, 30px);
-    text-decoration: underline;
-    --bs-breadcrumb-divider: '>';
+	color: green;
+	font-size: clamp(10px, 4vw, 30px);
+	text-decoration: underline;
+	--bs-breadcrumb-divider: '>';
 }
 
 .page-link, .nav-link, a
 {
-    display: inline;
-    color: #1ba827;
-    text-decoration: underline;
+	display: inline;
+	color: #1ba827;
+	text-decoration: underline;
 }
 
 .bi
 {
-    color: white;
-    font-size: clamp(10px, 4vw, 30px);
+	color: white;
+	font-size: clamp(10px, 4vw, 30px);
 }
 
 .rounded-2
 {
-    background-color: rgb(106, 169, 194);
+	background-color: rgb(106, 169, 194);
 }
 
 .nav-link.active, .nav-link:hover, a:hover
 {
-    color: lightgreen !important;
+	color: lightgreen !important;
 }
 
 .error
 {
-    color: red;
+	color: red;
 }
 
 h1
 {
-    font-size: 2.5em;
+	font-size: 2.5em;
 }
 
 h2
 {
-    font-size: 2em;
+	font-size: 2em;
 }
 
 h3
 {
-    font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 p
 {
-    text-align: justify !important;
-    font-size: 1em;
+	text-align: justify !important;
+	font-size: 1em;
 }
 
 ul
 {
-    list-style-type: none;
+	list-style-type: none;
+}
+
+.bookGrid
+{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 0.75rem;
+	padding: 1rem;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.bookBtn 
+{
+	width: 100%;
+	height: 100%;
+	padding: 1rem;
+	min-height: 60px;
+	min-width: 160px;
+	max-width: 250px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@media (max-width: 600px)
+{
+	.bookGrid
+	{
+		grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+	}
+
+	.bookBtn
+	{
+		min-width: 80px;
+	}
+}
+
+#DoctrineandCovenants
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

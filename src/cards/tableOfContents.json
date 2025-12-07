@@ -1,0 +1,526 @@
+{
+  "books":[
+    {
+      "name": "Genesis",
+      "abbr": "Gen.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 50
+    },
+    {
+      "name": "Exodus",
+      "abbr": "Ex.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 40
+    },
+    {
+      "name": "Leviticus",
+      "abbr": "Lev.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 27
+    },
+    {
+      "name": "Numbers",
+      "abbr": "Num.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 36
+    },
+    {
+      "name": "Deuteronomy",
+      "abbr": "Deut.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 34
+    },
+    {
+      "name": "Joshua",
+      "abbr": "Josh.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 24
+    },
+    {
+      "name": "Judges",
+      "abbr": "Judg.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 21
+    },
+    {
+      "name": "Ruth",
+      "abbr": "Ruth",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 4
+    },
+    {
+      "name": "1 Samuel",
+      "abbr": "1 Sam.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 31
+    },
+    {
+      "name": "2 Samuel",
+      "abbr": "2 Sam.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 24
+    },
+    {
+      "name": "1 Kings",
+      "abbr": "1 Kgs.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 22
+    },
+    {
+      "name": "2 Kings",
+      "abbr": "2 Kgs.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 25
+    },
+    {
+      "name": "1 Chronicles",
+      "abbr": "1 Chr.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 29
+    },
+    {
+      "name": "2 Chronicles",
+      "abbr": "2 Chr.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 36
+    },
+    {
+      "name": "Ezra",
+      "abbr": "Ezra",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 10
+    },
+    {
+      "name": "Nehemiah",
+      "abbr": "Neh.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 13
+    },
+    {
+      "name": "Esther",
+      "abbr": "Esth.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 10
+    },
+    {
+      "name": "Job",
+      "abbr": "Job",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 42
+    },
+    {
+      "name": "Psalms",
+      "abbr": "Ps.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 150
+    },
+    {
+      "name": "Proverbs",
+      "abbr": "Prov.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 31
+    },
+    {
+      "name": "Ecclesiastes",
+      "abbr": "Eccl.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 12
+    },
+    {
+      "name": "Song of Solomon",
+      "abbr": "Song.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 8
+    },
+    {
+      "name": "Isaiah",
+      "abbr": "Isa.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 66
+    },
+    {
+      "name": "Jeremiah",
+      "abbr": "Jer.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 52
+    },
+    {
+      "name": "Lamentations",
+      "abbr": "Lam.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 5
+    },
+    {
+      "name": "Ezekiel",
+      "abbr": "Ezek.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 48
+    },
+    {
+      "name": "Daniel",
+      "abbr": "Dan.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 12
+    },
+    {
+      "name": "Hosea",
+      "abbr": "Hosea",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 14
+    },
+    {
+      "name": "Joel",
+      "abbr": "Joel",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 3
+    },
+    {
+      "name": "Amos",
+      "abbr": "Amos",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 9
+    },
+    {
+      "name": "Obadiah",
+      "abbr": "Obad.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 1
+    },
+    {
+      "name": "Jonah",
+      "abbr": "Jonah",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 4
+    },
+    {
+      "name": "Micah",
+      "abbr": "Micah",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 7
+    },
+    {
+      "name": "Nahum",
+      "abbr": "Nahum",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 3
+    },
+    {
+      "name": "Habakkuk",
+      "abbr": "Hab.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 3
+    },
+    {
+      "name": "Zephaniah",
+      "abbr": "Zeph.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 3
+    },
+    {
+      "name": "Haggai",
+      "abbr": "Hag.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 2
+    },
+    {
+      "name": "Zechariah",
+      "abbr": "Zech.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 14
+    },
+    {
+      "name": "Malachi",
+      "abbr": "Mal.",
+      "volumeOfScripture": "Old Testament",
+      "chapters": 4
+    },
+    {
+      "name": "Matthew",
+      "abbr": "Matt.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 28
+    },
+    {
+      "name": "Mark",
+      "abbr": "Mark",
+      "volumeOfScripture": "New Testament",
+      "chapters": 16
+    },
+    {
+      "name": "Luke",
+      "abbr": "Luke",
+      "volumeOfScripture": "New Testament",
+      "chapters": 24
+    },
+    {
+      "name": "John",
+      "abbr": "John",
+      "volumeOfScripture": "New Testament",
+      "chapters": 21
+    },
+    {
+      "name": "Acts",
+      "abbr": "Acts",
+      "volumeOfScripture": "New Testament",
+      "chapters": 28
+    },
+    {
+      "name": "Romans",
+      "abbr": "Rom.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 16
+    },
+    {
+      "name": "1 Corinthians",
+      "abbr": "1 Cor.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 16
+    },
+    {
+      "name": "2 Corinthians",
+      "abbr": "2 Cor.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 13
+    },
+    {
+      "name": "Galatians",
+      "abbr": "Gal.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 6
+    },
+    {
+      "name": "Ephesians",
+      "abbr": "Eph.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 6
+    },
+    {
+      "name": "Philippians",
+      "abbr": "Philip.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 4
+    },
+    {
+      "name": "Colossians",
+      "abbr": "Col.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 4
+    },
+    {
+      "name": "1 Thessalonians",
+      "abbr": "1 Thes.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 5
+    },
+    {
+      "name": "2 Thessalonians",
+      "abbr": "2 Thes.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 3
+    },
+    {
+      "name": "1 Timothy",
+      "abbr": "1 Tim.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 6
+    },
+    {
+      "name": "2 Timothy",
+      "abbr": "2 Tim.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 4
+    },
+    {
+      "name": "Titus",
+      "abbr": "Titus",
+      "volumeOfScripture": "New Testament",
+      "chapters": 3
+    },
+    {
+      "name": "Philemon",
+      "abbr": "Philem.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 1
+    },
+    {
+      "name": "Hebrews",
+      "abbr": "Heb.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 13
+    },
+    {
+      "name": "James",
+      "abbr": "James",
+      "volumeOfScripture": "New Testament",
+      "chapters": 5
+    },
+    {
+      "name": "1 Peter",
+      "abbr": "1 Pet.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 5
+    },
+    {
+      "name": "2 Peter",
+      "abbr": "2 Pet.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 3
+    },
+    {
+      "name": "1 John",
+      "abbr": "1 Jn.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 5
+    },
+    {
+      "name": "2 John",
+      "abbr": "2 Jn.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 1
+    },
+    {
+      "name": "3 John",
+      "abbr": "3 Jn.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 1
+    },
+    {
+      "name": "Jude",
+      "abbr": "Jude",
+      "volumeOfScripture": "New Testament",
+      "chapters": 1
+    },
+    {
+      "name": "Revelation",
+      "abbr": "Rev.",
+      "volumeOfScripture": "New Testament",
+      "chapters": 22
+    },
+    {
+      "name": "1 Nephi",
+      "abbr": "1 Ne.",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 22
+    },
+    {
+      "name": "2 Nephi",
+      "abbr": "2 Ne.",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 33
+    },
+    {
+      "name": "Jacob",
+      "abbr": "Jacob",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 7
+    },
+    {
+      "name": "Enos",
+      "abbr": "Enos",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 1
+    },
+    {
+      "name": "Jarom",
+      "abbr": "Jarom",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 1
+    },
+    {
+      "name": "Omni",
+      "abbr": "Omni",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 1
+    },
+    {
+      "name": "Words of Mormon",
+      "abbr": "WoM",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 1
+    },
+    {
+      "name": "Mosiah",
+      "abbr": "Mosiah",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 29
+    },
+    {
+      "name": "Alma",
+      "abbr": "Alma",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 63
+    },
+    {
+      "name": "Helaman",
+      "abbr": "Hel.",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 16
+    },
+    {
+      "name": "3 Nephi",
+      "abbr": "3 Ne.",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 30
+    },
+    {
+      "name": "4 Nephi",
+      "abbr": "4 Ne.",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 1
+    },
+    {
+      "name": "Mormon",
+      "abbr": "Morm.",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 9
+    },
+    {
+      "name": "Ether",
+      "abbr": "Ether",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 15
+    },
+    {
+      "name": "Moroni",
+      "abbr": "Moro.",
+      "volumeOfScripture": "Book of Mormon",
+      "chapters": 10
+    },
+    {
+      "name": "Doctrine and Covenants",
+      "abbr": "D&C",
+      "volumeOfScripture": "Doctrine and Covenants",
+      "chapters": 138
+    },
+    {
+      "name": "Moses",
+      "abbr": "Moses",
+      "volumeOfScripture": "Pearl of Great Price",
+      "chapters": 8
+    },
+    {
+      "name": "Abraham",
+      "abbr": "Abr.",
+      "volumeOfScripture": "Pearl of Great Price",
+      "chapters": 5
+    },
+    {
+      "name": "Joseph Smith--Matthew",
+      "abbr": "Js-M",
+      "volumeOfScripture": "Pearl of Great Price",
+      "chapters": 1
+    },
+    {
+      "name": "Joseph Smith--History",
+      "abbr": "Js-H",
+      "volumeOfScripture": "Pearl of Great Price",
+      "chapters": 1
+    },
+    {
+      "name": "Articles of Faith",
+      "abbr": "A of F",
+      "volumeOfScripture": "Pearl of Great Price",
+      "chapters": 1
+    }
+  ]
+}

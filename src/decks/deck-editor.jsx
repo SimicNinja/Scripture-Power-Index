@@ -10,7 +10,7 @@ export function DeckEditor(props)
 
 	function newFlashcard()
 	{
-		navigate("/chapter-select");
+		navigate("/book-select");
 	}
 
 	function saveDeck()

@@ -10,12 +10,14 @@ import {DeckEditor} from './decks/deck-editor';
 import {CardEditor} from './decks/flashcard-editor';
 import {AuthState} from './user_management/AuthState';
 import {ChapterSelection} from './cards/chapterSelction';
+import { BookSelection } from './cards/bookSelection';
 
 export default function App()
 {
 	const [email, setEmail] = useState(localStorage.getItem("email") || "");
 	const [password, setPassword] = useState("");
 	const [authState, setAuthState] = useState(AuthState.Unauthenticated);
+	const [bookPayload, setBook] = useState(null);
 	const [chapterPayload, setChapter] = useState(null);
 	const [currentDeck, setCurrentDeck] = useState({title: "", flashcards: []});
 	const [deletedDeck, setDeletedDeck] = useState(null);
@@ -137,9 +139,13 @@ export default function App()
 				<DeckEditor currentDeck = {currentDeck} setCurrentDeck = {setCurrentDeck}
 				setFlashcard = {setCurrentFlashcard} deleteFlashcard = {setDeletedFlashcard}/>
 			}/>
+			<Route path = "/book-select" element =
+			{
+				<BookSelection setPayload = {setBook}/>
+			}/>
 			<Route path = "/chapter-select" element =
 			{
-				<ChapterSelection setPayload = {setChapter}/>
+				<ChapterSelection setPayload = {setChapter} book = {bookPayload}/>
 			}/>
 			<Route path = "/card-edit" element =
 			{

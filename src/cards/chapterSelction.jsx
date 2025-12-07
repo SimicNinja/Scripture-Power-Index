@@ -2,13 +2,14 @@ import React, {useEffect, useState} from "react";
 import Button from 'react-bootstrap/Button';
 import {useNavigate} from "react-router-dom";
 
-export function ChapterSelection({setPayload})
+export function ChapterSelection(props)
 {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const navigate = useNavigate();
 
-	useEffect(() => {
+	useEffect(() =>
+	{
 		fetch("/api/scriptures/?q=2+Nephi+3%3A1-99")
 		.then(response =>
 		{
@@ -22,7 +23,7 @@ export function ChapterSelection({setPayload})
 		})
 		.then(json =>
 		{
-			setPayload(json.scriptures);
+			props.setPayload(json.scriptures);
 			console.log(json.scriptures);
 			setLoading(false);
 		})
@@ -44,9 +45,9 @@ export function ChapterSelection({setPayload})
 
 	return (
 	<main>
-		<Button variant = "primary" onClick = {openCardEditor}>
-			Select This Chapter
-		</Button>
+		<h1 className = "text-center pt-2">Chapter Selection</h1>
+
+		
 	</main>
 	);
 }
