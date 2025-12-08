@@ -11,8 +11,7 @@ export function CardEditor(props)
 	{
 		const firstVerse = props.scriptures[0];
 		return `${firstVerse.book} ${firstVerse.chapter}`;
-	}
-	);
+	});
 
 	function toggleVerse(verse)
 	{
@@ -79,6 +78,20 @@ export function CardEditor(props)
 	{
 		setFlashcardID(generateFlashcardID(selectedVerses));
 	}, [selectedVerses]);
+
+	useEffect(() =>
+	{
+		if(props.editMode)
+		{
+			const normalized = props.currentFlashcard.verses.map((v) => (
+			{
+				verseID: v.verseID,
+				verseText: v.verseText
+			}));
+			setVerses(normalized);
+			props.deleteFlashcard(props.currentFlashcard);
+		}
+	}, []);
 
 	return (
 	<main>

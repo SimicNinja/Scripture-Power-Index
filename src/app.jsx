@@ -23,6 +23,7 @@ export default function App()
 	const [deletedDeck, setDeletedDeck] = useState(null);
 	const [currentFlashcard, setCurrentFlashcard] = useState({flashcardID: "", verses: []});
 	const [deletedFlashcard, setDeletedFlashcard] = useState(null);
+	const [editMode, setEditMode] = useState(false);
 	const [decks, setDecks] = useState(() => 
 	{
 		// const storedDecks = localStorage.getItem("decks");
@@ -137,7 +138,8 @@ export default function App()
 			<Route path = "/deck-edit" element =
 			{
 				<DeckEditor currentDeck = {currentDeck} setCurrentDeck = {setCurrentDeck}
-				setFlashcard = {setCurrentFlashcard} deleteFlashcard = {setDeletedFlashcard}/>
+				setFlashcard = {setCurrentFlashcard} deleteFlashcard = {setDeletedFlashcard}
+				setPayload = {setChapter} setEditMode = {setEditMode}/>
 			}/>
 			<Route path = "/book-select" element =
 			{
@@ -149,7 +151,9 @@ export default function App()
 			}/>
 			<Route path = "/card-edit" element =
 			{
-				<CardEditor scriptures = {chapterPayload} currentFlashcard = {currentFlashcard} setFlashcard = {setCurrentFlashcard}/>
+				<CardEditor scriptures = {chapterPayload} editMode = {editMode} currentFlashcard = {currentFlashcard}
+				setFlashcard = {setCurrentFlashcard} deleteFlashcard = {setDeletedFlashcard}
+				/>
 			}/>
 			<Route path = "*" element = {<NotFound/>}/>
 		</Routes>

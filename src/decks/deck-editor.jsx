@@ -5,8 +5,71 @@ import {useNavigate, NavLink} from "react-router-dom";
 export function DeckEditor(props)
 {
 	const [title, setTitle] = useState(props.currentDeck.title);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(null);
 	const [showInput, setShowInput] = useState(false);
 	const navigate = useNavigate();
+
+	async function editFlashcard(flashcard)
+	{
+		props.setFlashcard(flashcard);
+
+		if(loading || error) return;
+
+		try
+		{
+			setLoading(true);
+			setError(null);
+
+			const flashcardID = flashcard.id;
+			const bookAndChapter = flashcardID.split(":")[0];
+			const verseRange = "1-99"; // Fetch all verses in the chapter
+
+			const query = `${bookAndChapter}:${verseRange}`;
+			const params = new URLSearchParams({q: query});
+			const url = `/api/scriptures/?${params.toString()}`;
+
+			const response = await fetch(url);
+			if(!response.ok)
+			{
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+
+			const json = await response.json();
+
+			props.setPayload(json.scriptures);
+			props.setEditMode(true);
+
+			navigate("/card-edit");
+		}
+		catch(err)
+		{
+			console.error("Error fetching data:", err);
+			setError(err.message);
+		}
+		finally
+		{
+			setLoading(false);
+		}
+	}
+
+	if(loading)
+	{
+		return (
+		<main>
+			<h1 className = "text-center pt-2">Loading Chapter Contents Please Wait!</h1>
+		</main>
+		);
+	}
+
+	if(error)
+	{
+		return (
+		<main>
+			<h1 className = "text-center pt-2">Error: {error}</h1>
+		</main>
+		);
+	}
 
 	function newFlashcard()
 	{
@@ -50,12 +113,11 @@ export function DeckEditor(props)
 					{props.currentDeck.flashcards.map((flashcard, index) => (
 					<tr key = {index}>
 						<td>
-							<NavLink to = "/flashcard-edit" onClick =
+							<Button variant = "primary" onClick =
 							{
-								() => props.setCurrentFlashcard(flashcard)
-								// Implment API call based on flashcard ID to get verses
+								() => editFlashcard(flashcard)
 							}>
-							{flashcard.id}</NavLink>
+							{flashcard.id}</Button>
 						</td>
 						<td style={{whiteSpace: "pre-wrap"}}>
 							{flashcard.verses.map(v => v.verseText).join("\n")}
