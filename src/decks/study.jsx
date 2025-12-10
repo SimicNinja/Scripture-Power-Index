@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import {useNavigate, NavLink} from "react-router-dom";
 
@@ -8,6 +9,8 @@ export function Study(props)
 	const [order, setOrder] = useState(() => shuffleIndices(cards.length));
 	const [currentPosition, setPosition] = useState(0);
 	const [flipped, setFlipped] = useState(true); // False = front (Verse ID), True = back (Verse Text)
+	const [showHelp, setShowHelp] = useState(false);
+
 	const currentCardIndex = order[currentPosition];
 	const currentCard = cards[currentCardIndex];
 
@@ -45,6 +48,9 @@ export function Study(props)
 	// Add keyboard listeners: Spacebar to flip, Left & Right arrows to navigate.
 	useEffect(() =>
 	{
+		// Disables if help modal is showing.
+		if (showHelp) return;
+
 		function onKey(e)
 		{
 			if (e.code === "Space" || e.code === "ArrowDown" || e.code === "ArrowUp")
@@ -65,11 +71,11 @@ export function Study(props)
 		}
 		window.addEventListener("keydown", onKey);
 		return () => window.removeEventListener("keydown", onKey);
-	}, []);
+	}, [showHelp]);
 
 	return (
 	<main>
-		<h1 className = "text-center">Studying Deck: {props.currentDeck.title}</h1>
+		<h1 className = "text-center">Studying: {props.currentDeck.title}</h1>
 		<h2 className = "text-center">Card {currentPosition + 1} of {order.length}</h2>
 
 		<section className = "flashcardViewer text-center p-2 m-auto">
@@ -87,9 +93,28 @@ export function Study(props)
 		<div className = "text-center mt-3">
 			<Button className = "flashcardButton" onClick = {() => setPosition(p => (p - 1 + order.length) % order.length)}>Prev</Button>
 			<Button className = "flashcardButton ms-2" onClick = {() => setOrder(shuffleIndices(cards.length))}>Shuffle</Button>
+			<Button className = "flashcardButton ms-2" onClick = {() => setShowHelp(true)}>Help</Button>
 			<Button className = "flashcardButton ms-2" onClick = {() => setFlipped(f => !f)}>Flip</Button>
 			<Button className = "flashcardButton ms-2" onClick = {() => setPosition(p => (p + 1) % order.length)}>Next</Button>
 		</div>
+
+		{/* Shortcuts Modal */}
+		<Modal show = {showHelp} onHide={() => setShowHelp(false)} centered>
+			<Modal.Header closeButton>
+				<Modal.Title id = "shortcuts-modal-title">Keyboard Shortcuts</Modal.Title>
+			</Modal.Header>
+			<Modal.Body>
+			<ul className = "mb-0">
+				<li><kbd>Space</kbd> / <kbd>↑</kbd> / <kbd>↓</kbd> — Flip the card</li>
+				<li><kbd>←</kbd> — Previous card</li>
+				<li><kbd>→</kbd> — Next card</li>
+				<li><kbd>Esc</kbd> — Close this help dialog</li>
+			</ul>
+			</Modal.Body>
+			<Modal.Footer>
+				<Button variant = "secondary" onClick={() => setShowHelp(false)}>Close</Button>
+			</Modal.Footer>
+		</Modal>
 	</main>
 	)
 }
