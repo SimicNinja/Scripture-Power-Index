@@ -171,3 +171,13 @@ ul
 	justify-content: center;
 	align-items: center;
 }
+
+.flashcardViewer
+{
+	border: solid;
+	border-color: #ddd;
+	border-radius: 0.5rem;
+	background-color: "#fafafa";
+	min-height: 1rem;
+	max-width: 97vw;
+}

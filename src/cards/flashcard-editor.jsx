@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Verse} from "../cards/verse";
+import {Verse} from "./verse";
 import Button from 'react-bootstrap/Button';
 import {useNavigate} from "react-router-dom";
 

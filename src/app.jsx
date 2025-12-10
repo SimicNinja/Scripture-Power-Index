@@ -7,10 +7,11 @@ import {Login} from './user_management/login';
 import {Registration} from './user_management/registration';
 import {DeckManager} from './decks/deck-management';
 import {DeckEditor} from './decks/deck-editor';
-import {CardEditor} from './decks/flashcard-editor';
+import {CardEditor} from './cards/flashcard-editor';
 import {AuthState} from './user_management/AuthState';
 import {ChapterSelection} from './cards/chapterSelction';
 import { BookSelection } from './cards/bookSelection';
+import { Study } from './decks/study';
 
 export default function App()
 {
@@ -156,6 +157,10 @@ export default function App()
 				/>
 			}/>
 			<Route path = "*" element = {<NotFound/>}/>
+			<Route path = "/study" element =
+			{
+				<Study currentDeck = {currentDeck}/>
+			}/>
 		</Routes>
 
 		<footer className = "text-center">

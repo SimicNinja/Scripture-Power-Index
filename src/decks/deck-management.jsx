@@ -45,10 +45,24 @@ export function DeckManager(props)
 				<tbody className = "table-group-divider">
 					{props.decks.map((deck, index) => (
 					<tr key = {index}>
-						<td><NavLink to = "/deck-edit" onClick =
+						<td>
+							{deck.title}
+							<Button variant = "primary" className = "ms-2" onClick =
 							{
-								() => props.setCurrentDeck(deck)
-							}>{deck.title}</NavLink>
+								() => 
+								{
+									props.setCurrentDeck(deck);
+									navigate("/study");
+								}
+							}>Study</Button>
+							<Button variant = "secondary" className = "ms-2" onClick =
+							{
+								() => 
+								{
+									props.setCurrentDeck(deck);
+									navigate("/deck-edit");
+								}
+							}>Edit</Button>
 						</td>
 						<td>{deck.flashcards.length}</td>
 						<td className = "d-none d-lg-table-cell">{"You"}</td>
