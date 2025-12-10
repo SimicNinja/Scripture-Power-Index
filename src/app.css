@@ -178,6 +178,17 @@ ul
 	border-color: #ddd;
 	border-radius: 0.5rem;
 	background-color: "#fafafa";
-	min-height: 1rem;
-	max-width: 97vw;
+	min-height: 25vh;
+	max-width: 800px;
+	min-width: 90vw;
+	font-size: clamp(12px, 4vw, 24px);
+	display: flex;
+	align-items: center;
+}
+
+.flashcardButton
+{
+	min-width: 140px;
+	min-height: 50px;
+	font-size: 1.4em;
 }

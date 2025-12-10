@@ -29,8 +29,82 @@ export default function App()
 	{
 		// const storedDecks = localStorage.getItem("decks");
 		// return storedDecks ? JSON.parse(storedDecks) : [];
-		return [];
-	});
+		return [
+				{
+					"title": "Test",
+					"flashcards": [
+					{
+						"id": "1 Nephi 1:1",
+						"verses": [
+						{
+							"verseID": 1,
+							"verseText": "1 I, Nephi, having been born of goodly parents, therefore I was taught somewhat in all the learning of my father; and having seen many afflictions in the course of my days, nevertheless, having been highly favored of the Lord in all my days; yea, having had a great knowledge of the goodness and the mysteries of God, therefore I make a record of my proceedings in my days."
+						}
+						]
+					},
+					{
+						"id": "2 Nephi 9:51",
+						"verses": [
+						{
+							"verseID": 51,
+							"verseText": "51 Wherefore, do not spend money for that which is of no worth, nor your labor for that which cannot satisfy. Hearken diligently unto me, and remember the words which I have spoken; and come unto the Holy One of Israel, and feast upon that which perisheth not, neither can be corrupted, and let your soul delight in fatness."
+						}
+						]
+					},
+					{
+						"id": "Matthew 22:36-40",
+						"verses": [
+						{
+							"verseID": 40,
+							"verseText": "40 On these two commandments hang all the law and the prophets."
+						},
+						{
+							"verseID": 38,
+							"verseText": "38 This is the first and great commandment."
+						},
+						{
+							"verseID": 39,
+							"verseText": "39 And the second is like unto it, Thou shalt love thy neighbour as thyself."
+						},
+						{
+							"verseID": 37,
+							"verseText": "37 Jesus said unto him, Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind."
+						},
+						{
+							"verseID": 36,
+							"verseText": "36 Master, which is the great commandment in the law?"
+						}
+						]
+					},
+					{
+						"id": "John 14:27",
+						"verses": [
+						{
+							"verseID": 27,
+							"verseText": "27 Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid."
+						}
+						]
+					},
+					{
+						"id": "Helaman 5:12",
+						"verses": [
+						{
+							"verseID": 12,
+							"verseText": "12 And now, my sons, remember, remember that it is upon the rock of our Redeemer, who is Christ, the Son of God, that ye must build your foundation; that when the devil shall send forth his mighty winds, yea, his shafts in the whirlwind, yea, when all his hail and his mighty storm shall beat upon you, it shall have no power over you to drag you down to the gulf of misery and endless wo, because of the rock upon which ye are built, which is a sure foundation, a foundation whereon if men build they cannot fall."
+						}
+						]
+					},
+					{
+						"id": "Ether 12:27",
+						"verses": [
+						{
+							"verseID": 27,
+							"verseText": "27 And if men come unto me I will show unto them their weakness. I give unto men weakness that they may be humble; and my grace is sufficient for all men that humble themselves before me; for if they humble themselves before me, and have faith in me, then will I make weak things become strong unto them."
+						}
+						]
+					}
+					]
+				}];});
 
 	// Commit decks to local storage whenever they change
 	useEffect(() =>
@@ -52,6 +126,7 @@ export default function App()
 	// Update current deck when a flashcard is deleted
 	useEffect(() =>
 	{
+		if (!deletedFlashcard) return;
 		const updatedDeck =
 		{
 			...currentDeck, flashcards: currentDeck.flashcards.filter(f => f.id !== deletedFlashcard.id)
@@ -68,6 +143,7 @@ export default function App()
 
 	useEffect(() =>
 	{
+		if (!deletedDeck) return
 		setDecks(prevDecks => prevDecks.filter(deck => deck.title !== deletedDeck.title));
 	}, [deletedDeck]);
 
