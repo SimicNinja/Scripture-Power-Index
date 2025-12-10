@@ -128,8 +128,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - Exstensive addition of missing pages (chapter & book selection, study page, etc.)
+- [x] **Hooks** - Extensive use of useState() to track variables and useEffect() to trigger changes (keyboard listeners, update in main component, etc.)
+- [x] Implemented API call from api.nephi.org to elimante storage of entire standards works within the application.
 
 ## 🚀 Service deliverable
 
