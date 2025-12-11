@@ -1,4 +1,4 @@
-import React, {useState, useEffect, use} from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
@@ -147,6 +147,81 @@ export default function App()
 		setDecks(prevDecks => prevDecks.filter(deck => deck.title !== deletedDeck.title));
 	}, [deletedDeck]);
 
+	useEffect(() =>
+	{
+		if (authState !== AuthState.Authenticated) return;
+		saveDecks(decks);
+	}, [decks, authState]);
+
+	async function loadDecks()
+	{
+		try
+		{
+			const res = await fetch("/api/decks");
+			if (!res.ok) throw new Error();
+			setDecks(await res.json());
+		}
+		catch (_err) {}
+	}
+
+	async function saveDecks(nextDecks)
+	{
+		try
+		{
+			await fetch("/api/decks",
+			{
+				method: "PUT",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ decks: nextDecks ?? decks })
+			});
+		}
+		catch (_err) {}
+	}
+
+	async function handleLogin(loginEmail, loginPassword)
+	{
+		try
+		{
+			const res = await fetch("/api/auth/login",
+			{
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ email: loginEmail, password: loginPassword })
+			});
+			if (!res.ok) throw new Error("login failed");
+			setEmail(loginEmail);
+			setPassword("");
+			setAuthState(AuthState.Authenticated);
+			await loadDecks();
+		}
+		catch (_err)
+		{
+			setAuthState(AuthState.Unauthenticated);
+		}
+	}
+
+	async function handleRegister(regEmail, regPassword)
+	{
+		try
+		{
+			const res = await fetch("/api/auth/create",
+			{
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ email: regEmail, password: regPassword })
+			});
+			if (!res.ok) throw new Error("register failed");
+			setEmail(regEmail);
+			setPassword("");
+			setAuthState(AuthState.Authenticated);
+			await loadDecks();
+		}
+		catch (_err)
+		{
+			setAuthState(AuthState.Unauthenticated);
+		}
+	}
+
 	return (
 	<BrowserRouter>
 		<header className = "d-flex flex-wrap align-items-center justify-content-start border-bottom">
@@ -195,19 +270,11 @@ export default function App()
 		<Routes>
 			<Route path = "/" element = {<About/>}/>
 			<Route path = "/login" element = {<Login
-				onLogin = {(email, password) =>
-				{
-					setEmail(email);
-					setPassword(password);
-					setAuthState(AuthState.Authenticated);
-				}}/>}/>
+				onLogin = {handleLogin}
+			/>}/>
 			<Route path = "/register" element = {<Registration
-				onRegister = {(email, password) =>
-				{
-					setEmail(email);
-					setPassword(password);
-					setAuthState(AuthState.Authenticated);
-				}}/>}/>
+				onRegister = {handleRegister}
+			/>}/>
 			<Route path = "/decks" element = 
 			{
 				<DeckManager decks = {decks} setDecks = {setDecks} setCurrentDeck = {setCurrentDeck} deleteDeck = {setDeletedDeck}/>
